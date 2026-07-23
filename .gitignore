@@ -1,0 +1,13 @@
+# Internal working material — deliberately NOT published.
+# _plan/ contains the regulatory risk assessment and strategy notes; those are
+# internal advice, not client-facing, and must not sit on a shared URL.
+_plan/
+_archive/
+_tools/
+images/
+
+# OS / editor noise
+Thumbs.db
+desktop.ini
+.DS_Store
+*.swp
