@@ -1,0 +1,4 @@
+# Work-in-progress client preview. Not for indexing.
+# Delete this file when the site goes live on its real domain.
+User-agent: *
+Disallow: /
