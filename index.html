@@ -3,334 +3,867 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Blue Rose Boutique — Metodo Face to Face, Olbia</title>
-<meta name="description" content="Un'alternativa avanzata alla medicina estetica per chi desidera risultati visibili nel rispetto della propria autenticità. Olbia, via Roma 242.">
+<title>Metodo Face to Face — Blue Rose Boutique, Olbia</title>
+<meta name="description" content="Il Metodo Face to Face di Blue Rose: analisi della pelle con microcamera e trattamento viso senza aghi. Prima esperienza 59 € anziché 150. Olbia, via Roma 242.">
 <meta name="theme-color" content="#FAF7F1">
-<!-- Work-in-progress client preview on a public Pages URL. Keep it out of
-     search: an unfinished page ranking under the client's own name would
-     compete with their live site. Remove before go-live. -->
+<!-- Work-in-progress client preview on a public Pages URL. Remove before go-live. -->
 <meta name="robots" content="noindex,nofollow">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="it_IT">
 <meta property="og:site_name" content="Blue Rose Boutique">
-<meta property="og:title" content="Blue Rose Boutique — Metodo Face to Face, Olbia">
-<meta property="og:description" content="La bellezza del tuo viso, senza l'artificio del tempo.">
+<meta property="og:title" content="Metodo Face to Face — Blue Rose Boutique, Olbia">
+<meta property="og:description" content="Analisi della pelle con microcamera e trattamento viso senza aghi. Prima esperienza 59 € anziché 150.">
 <meta property="og:image" content="og.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FAF7F1'/%3E%3Cg fill='none' stroke='%232E3A5C' stroke-width='1.15'%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(72 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(144 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(216 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(288 16 16)'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FAF7F1'/%3E%3Cg fill='none' stroke='%236285A8' stroke-width='1.15'%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(72 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(144 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(216 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(288 16 16)'/%3E%3C/g%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
 <style>
+/* ============================================================== tokens ===
+   Palette taken from the approved hero only: cream, the soft blue, and the
+   golden-brown. No navy anywhere. Where the reference comp used dark navy
+   bands, this page uses pale blue and sand tints instead, so the whole page
+   stays light — which is also the more expensive register.
+   Every value below is contrast-checked; the ratio is noted where it matters. */
 :root{
-  /* Sampled directly out of BLue_rose hero_V2.png (darkest decile of each
-     text band), so these are the comp's own values, not approximations. */
-  --crema:#FAF7F1;
-  --oro:#82643A;        /* headline line 1        — 5.1:1 on marble */
-  --grigio:#545454;     /* headline line 2, italic — 7.1:1 */
-  --sub:#533422;        /* sub-headline           — 10.4:1 */
-  /* The comp's tan (#A79275) gives white text only 3.0:1 — below the 4.5:1
-     floor and visibly weak on a phone in daylight. Deepened just enough to
-     clear AA at 4.6:1 while staying the same colour family. */
-  --bottone:#87714A;
-  --blu:#6285A8;        /* BLUE ROSE wordmark */
-  --boutique:#A89376;   /* BOUTIQUE lockup line */
+  --crema:#FAF7F1;        /* page ground */
+  --sabbia:#F4EEE4;       /* warm alt band */
+  --azzurro-pallido:#E7EDF4; /* cool alt band — the comp's dark navy, inverted */
+  --bianco:#FFFDFA;       /* cards */
+
+  --oro:#82643A;          /* display gold        5.1:1 on cream */
+  --oro-chiaro:#A2895C;   /* large accents only  3.4:1 — never below 24px */
+  --bottone:#87714A;      /* CTA fill, white on it 4.7:1 */
+  --bottone-scuro:#5E4E2F;
+  --sub:#533422;          /* small caps         10.4:1 */
+
+  /* the hero's #6285A8 gives the 22px wordmark only 3.6:1; deepened a shade
+     to clear 4.8:1 while still reading as the same soft blue */
+  --blu:#4E6E92;
+  --blu-scuro:#3E566E;    /* blue at body size  6.8:1 on cream */
+
   --testo:#3B342A; --testo-2:#5F5749;
-  --filo:rgba(59,52,42,.2);
+  --filo:rgba(59,52,42,.16); --filo-2:rgba(59,52,42,.09);
+  --boutique:#A89376;
+
   --g:"EB Garamond",Garamond,Georgia,serif;
   --ui:ui-sans-serif,-apple-system,"Segoe UI",Roboto,system-ui,sans-serif;
-  --max:1400px; --pad:clamp(22px,4.6vw,72px);
-  --e:cubic-bezier(.22,1,.36,1);          /* ease-out-quint: settles, never bounces */
+  --max:1360px; --pad:clamp(20px,4.4vw,68px);
+  --e:cubic-bezier(.22,1,.36,1);
   --e-soft:cubic-bezier(.16,1,.3,1);
-}
-@media (prefers-reduced-motion:no-preference){
-  ::selection{background:rgba(130,100,58,.16)}
+  --z-sticky:20; --z-header:40; --z-bar:50;
 }
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){ html{scroll-behavior:smooth} }
 body{margin:0;background:var(--crema);color:var(--testo);font-family:var(--g);
   font-size:19px;line-height:1.6;overflow-x:clip;-webkit-font-smoothing:antialiased}
 img,video{display:block;max-width:100%}
+ul,ol{margin:0;padding:0;list-style:none}
 a{color:inherit;text-decoration:none}
-h1{margin:0;font-weight:400}
-:focus-visible{outline:2px solid var(--blu);outline-offset:3px;border-radius:2px}
-/* keyboard-only, so it has to be genuinely readable: the wordmark blue is
-   too light behind white text (3.9:1), the deep navy clears AA at 11:1 */
-.skip{position:absolute;left:-9999px;background:#2E3A5C;color:#fff;padding:12px 18px;z-index:99}
+button{font:inherit;cursor:pointer}
+h1,h2,h3{margin:0;font-weight:400;font-family:var(--g);line-height:1.12;text-wrap:balance}
+p{margin:0 0 1em;text-wrap:pretty}
+:focus-visible{outline:2px solid var(--blu-scuro);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:-9999px;background:var(--blu-scuro);color:#fff;padding:12px 18px;z-index:99}
 .skip:focus{left:10px;top:10px}
 .wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--pad)}
+.sec{padding-block:clamp(66px,8vw,132px)}
+.sabbia{background:var(--sabbia)}
+.azzurro{background:var(--azzurro-pallido)}
 
-/* ---------------------------------------------------------- header ----- */
-.top{position:absolute;inset:0 0 auto;z-index:10}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:22px;height:96px}
-.logo{display:flex;flex-direction:column;line-height:1}
-.logo b{font-family:var(--g);font-weight:400;font-size:25px;letter-spacing:.22em;color:var(--blu)}
-.logo span{font-family:var(--ui);font-size:11px;font-weight:600;letter-spacing:.38em;
-  color:var(--boutique);margin-top:8px;padding-left:.25em}
+/* ---------------------------------------------------------------- type --- */
+.d1{font-size:clamp(2.1rem,4.6vw,3.9rem);line-height:1.08;color:var(--testo);letter-spacing:-.005em}
+.d1 em{font-style:normal;color:var(--oro)}
+.d2{font-size:clamp(1.75rem,3.3vw,2.85rem);color:var(--testo)}
+.d2 em{font-style:italic;color:var(--oro)}
+.d3{font-size:1.22rem;color:var(--testo)}
+.occhio{font-family:var(--ui);font-size:12px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--sub);margin:0 0 20px;display:flex;align-items:center;gap:14px}
+.occhio::after{content:"";flex:0 0 54px;height:1px;background:var(--boutique)}
+.occhio.solo::after{display:none}
+.lede{font-family:var(--ui);font-size:clamp(15px,1.15vw,16.5px);line-height:1.72;
+  color:var(--testo-2);max-width:44ch}
+.mini{font-family:var(--ui);font-size:13.5px;color:var(--testo-2)}
+.senza{font-family:var(--ui);font-size:clamp(11.5px,.85vw,12.5px);font-weight:700;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--sub);margin:0}
+
+/* ------------------------------------------------------------- buttons --- */
+.btn{position:relative;overflow:hidden;isolation:isolate;
+  display:inline-flex;align-items:center;justify-content:center;text-align:center;gap:10px;
+  background:var(--bottone);color:#fff;border:1px solid var(--bottone);border-radius:3px;
+  padding:18px 34px;min-height:56px;font-family:var(--ui);font-size:12.5px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;line-height:1.4;
+  transition:border-color .5s var(--e),box-shadow .5s var(--e),transform .3s var(--e)}
+/* fill wipes up from the base rather than cross-fading */
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--bottone-scuro);
+  transform:translateY(101%);transition:transform .55s var(--e)}
+.btn:hover::before,.btn:focus-visible::before{transform:none}
+.btn:hover{border-color:var(--bottone-scuro);box-shadow:0 6px 22px -13px rgba(83,52,34,.55)}
+.btn:active{transform:translateY(1px)}
+.btn--vuoto{background:transparent;color:var(--testo);border-color:var(--filo)}
+.btn--vuoto::before{background:var(--blu-scuro)}
+.btn--vuoto:hover{color:#fff;border-color:var(--blu-scuro)}
+.btn--large{padding:22px 40px;min-height:64px;font-size:13px;width:100%}
+.piu{display:inline-flex;align-items:center;gap:10px;font-family:var(--ui);font-size:12px;
+  font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--sub);
+  border-bottom:1px solid rgba(83,52,34,.3);padding-bottom:4px;
+  transition:border-color .35s var(--e)}
+.piu:hover{border-bottom-color:var(--sub)}
+.azioni{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:30px}
+
+/* -------------------------------------------------------------- header --- */
+.top{position:fixed;inset:0 0 auto;z-index:var(--z-header);
+  transition:background .4s var(--e),box-shadow .4s var(--e)}
+.top.giu{background:rgba(250,247,241,.93);backdrop-filter:blur(14px);
+  box-shadow:0 1px 0 var(--filo-2)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:88px;
+  transition:height .4s var(--e)}
+.top.giu .wrap{height:70px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo svg{width:34px;height:34px;flex:none;color:var(--oro-chiaro)}
+.logo-t{display:flex;flex-direction:column;line-height:1}
+.logo-t b{font-family:var(--g);font-weight:400;font-size:22px;letter-spacing:.2em;color:var(--blu)}
+/* 9.5px in the tan of the comp measured 2.8:1 — unreadable. Larger, deeper. */
+.logo-t span{font-family:var(--ui);font-size:10.5px;font-weight:700;letter-spacing:.32em;
+  color:#6E5B3A;margin-top:6px;padding-left:.2em}
 .menu{display:flex;gap:30px}
-.menu a{position:relative;font-family:var(--ui);font-size:12px;font-weight:600;letter-spacing:.15em;
-  text-transform:uppercase;color:var(--testo-2);transition:color .3s var(--e);padding-bottom:3px}
-/* hairline drawn from the left on hover — a small, quiet signal of care */
+.menu a{position:relative;font-family:var(--ui);font-size:11.5px;font-weight:700;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--testo-2);padding-bottom:3px;
+  transition:color .3s var(--e)}
 .menu a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
   background:currentColor;transform:scaleX(0);transform-origin:left;
   transition:transform .45s var(--e)}
 .menu a:hover{color:var(--sub)}
 .menu a:hover::after{transform:none}
+.top .btn{padding:13px 22px;min-height:46px;font-size:11px;letter-spacing:.13em}
 .ham{display:none;width:44px;height:44px;border:0;background:none;position:relative}
-.ham i{position:absolute;left:11px;right:11px;height:1.4px;background:var(--blu);
+.ham i{position:absolute;left:11px;right:11px;height:1.4px;background:var(--blu-scuro);
   transition:transform .3s var(--e),opacity .3s var(--e)}
 .ham i:nth-child(1){top:17px}.ham i:nth-child(2){top:22px}.ham i:nth-child(3){top:27px}
 .ham[aria-expanded="true"] i:nth-child(1){transform:translateY(5px) rotate(45deg)}
 .ham[aria-expanded="true"] i:nth-child(2){opacity:0}
 .ham[aria-expanded="true"] i:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
-@media(max-width:1000px){
+@media(max-width:1080px){
   .menu{position:fixed;inset:0 0 0 auto;width:min(330px,84vw);background:var(--crema);
     flex-direction:column;justify-content:center;padding:40px;gap:26px;transform:translateX(101%);
-    transition:transform .45s var(--e);box-shadow:-24px 0 60px -40px rgba(0,0,0,.45)}
+    transition:transform .45s var(--e);box-shadow:-24px 0 60px -40px rgba(0,0,0,.4)}
   .menu.aperto{transform:none}
-  .menu a{font-size:15px;letter-spacing:.09em}
+  .menu a{font-size:15px;letter-spacing:.08em}
   .ham{display:block}
-  .top .wrap{height:80px}
-  /* the drawer is positioned by transform; an entrance animation on the same
-     property would fight the slide-in, so it is dropped at this breakpoint */
-  .menu.nav-in{animation:none}
+  .top .btn{display:none}
+  .top .wrap,.top.giu .wrap{height:72px}
 }
 
-/* ------------------------------------------------------------ hero ----- */
-/* The plate is the design. Type sits in the empty marble on the left and
-   never crosses the face. A scrim guarantees legibility across the whole
-   loop, because the clip is a slow push-in and the subject grows as it plays.
-   The loop itself is a boomerang (forward then reversed), so it returns to
-   its own first frame and there is no cut to disguise. */
+/* ---------------------------------------------------------------- hero --- */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;isolation:isolate}
-/* The plate occupies the right side only and its left edge is feathered into
-   the cream, so it still reads as one continuous surface. This is what keeps
-   it sharp: stretched full-bleed the 864px master is a ~1.9x blow-up, here it
-   renders at or below native size. */
-/* The seam is what betrays a photo pasted onto a page. A two-stop linear mask
-   bands visibly across a large flat cream field, so this ramp is eased
-   (smoothstep-like) over many stops: the plate dissolves into the paper
-   rather than ending at an edge. */
-.hero__media{position:absolute;top:0;right:0;bottom:0;width:60%;z-index:0;
-  --feather:linear-gradient(90deg,
-    transparent 0%,
-    rgba(0,0,0,.015) 7%,
-    rgba(0,0,0,.06) 13%,
-    rgba(0,0,0,.15) 18%,
-    rgba(0,0,0,.30) 23%,
-    rgba(0,0,0,.49) 28%,
-    rgba(0,0,0,.68) 33%,
-    rgba(0,0,0,.84) 38%,
-    rgba(0,0,0,.94) 43%,
-    rgba(0,0,0,.99) 48%,
-    #000 54%);
+/* An eased eleven-stop ramp: a two-stop mask bands across a flat cream field
+   and reads as a photo pasted onto a page. This dissolves plate into paper. */
+.hero__media{position:absolute;top:0;right:0;bottom:0;width:58%;z-index:0;
+  --feather:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.015) 7%,rgba(0,0,0,.06) 13%,
+    rgba(0,0,0,.15) 18%,rgba(0,0,0,.30) 23%,rgba(0,0,0,.49) 28%,rgba(0,0,0,.68) 33%,
+    rgba(0,0,0,.84) 38%,rgba(0,0,0,.94) 43%,rgba(0,0,0,.99) 48%,#000 54%);
   -webkit-mask-image:var(--feather); mask-image:var(--feather)}
 .hero__media img,.hero__media video{width:100%;height:100%;object-fit:cover;object-position:64% 50%}
-/* a whisper of vignette pulls the eye to the face and stops the plate
-   reading as a flat rectangle of video */
 .hero__media::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
   background:radial-gradient(115% 95% at 66% 44%,transparent 44%,rgba(59,52,42,.13) 100%)}
-/* warm wash, eased to the same curve as the mask so the two ramps don't
-   fight each other and produce a visible band */
 .hero__media::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
-  background:linear-gradient(90deg,
-    rgba(250,247,241,.88) 0%,
-    rgba(250,247,241,.72) 9%,
-    rgba(250,247,241,.50) 17%,
-    rgba(250,247,241,.28) 24%,
-    rgba(250,247,241,.13) 31%,
-    rgba(250,247,241,.04) 38%,
-    rgba(250,247,241,0) 46%)}
-.hero__in{position:relative;z-index:3;width:100%;padding:120px 0 76px}
-.hero__in .col{max-width:47rem}
+  background:linear-gradient(90deg,rgba(250,247,241,.90) 0%,rgba(250,247,241,.74) 9%,
+    rgba(250,247,241,.52) 17%,rgba(250,247,241,.29) 24%,rgba(250,247,241,.13) 31%,
+    rgba(250,247,241,.04) 38%,rgba(250,247,241,0) 46%)}
+.hero__in{position:relative;z-index:3;width:100%;padding:124px 0 82px}
+.hero__in .col{max-width:44rem}
+.hero .d1{margin-bottom:24px}
+.hero .lede{margin-bottom:26px;max-width:40ch}
+.hero .senza{margin-bottom:34px}
 
-/* --- editorial margin mark: hairline + counter, from the client's comp --- */
-.mark-col{position:absolute;left:calc(var(--pad) - 2px);top:50%;translate:0 -50%;z-index:3;
-  display:flex;flex-direction:column;align-items:center;gap:14px;pointer-events:none}
-/* the comp's light tan reads 2.77:1 here — too faint to actually see. The
-   display gold clears AA at 5.1:1 and ties the mark to the headline. */
-.mark-col b{font-family:var(--ui);font-size:11.5px;font-weight:600;letter-spacing:.2em;
+/* price block, as the comp */
+.prezzo{display:flex;align-items:flex-end;gap:20px;margin:0 0 32px}
+.prezzo b{font-family:var(--g);font-weight:400;font-size:clamp(3rem,5.4vw,4.4rem);line-height:.92;
   color:var(--oro);font-variant-numeric:lining-nums tabular-nums}
-.mark-col i{display:block;width:1px;height:clamp(52px,9vh,96px);
-  background:linear-gradient(var(--filo),transparent)}
-@media(max-width:1240px){.mark-col{display:none}}
+.prezzo div{padding-bottom:.5em}
+.prezzo span{display:block;font-family:var(--ui);font-size:12px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--testo);line-height:1.5}
+.prezzo s{display:block;font-family:var(--ui);font-size:13px;color:var(--testo-2);
+  text-decoration-thickness:1px;margin-top:3px}
 
-/* Two lines, exactly as the comp: one sentence per line, never wrapping.
-   The size is tied to viewport width so the longer italic line always fits
-   the column instead of breaking to four lines. */
-h1{font-size:clamp(1.75rem,4.3vw,4.3rem);line-height:1.16;color:var(--oro);
-  letter-spacing:-.004em;margin-bottom:30px;
-  /* optical alignment: pull the cap-height flush with the column edge */
-  text-indent:-.022em}
-h1 span,h1 em{display:block;white-space:nowrap}
-h1 em{font-style:italic;color:var(--grigio);text-indent:-.03em}
-/* three lines, matching the comp — measured, not guessed.
-   The short rule above it gives the block a top edge to sit against, which is
-   what stops small tracked caps reading as text floating in space. */
-.sub{position:relative;font-family:var(--ui);font-size:clamp(11.5px,.88vw,12.5px);
-  font-weight:600;letter-spacing:.14em;text-transform:uppercase;line-height:1.9;
-  color:var(--sub);max-width:30rem;margin:0 0 38px;padding-top:26px}
-.sub::before{content:"";position:absolute;top:0;left:0;width:38px;height:1px;
-  background:var(--boutique)}
-.cta{position:relative;overflow:hidden;isolation:isolate;
-  display:inline-flex;align-items:center;justify-content:center;text-align:center;
-  background:var(--bottone);color:#fff;border:1px solid var(--bottone);border-radius:4px;
-  padding:19px 40px;min-height:58px;font-family:var(--ui);font-size:12.5px;font-weight:700;
-  letter-spacing:.18em;text-transform:uppercase;line-height:1.4;
-  transition:color .45s var(--e),border-color .5s var(--e),
-             box-shadow .5s var(--e),transform .3s var(--e)}
-/* the fill wipes up from the base rather than cross-fading — reads as
-   deliberate craft instead of a default hover */
-.cta::before{content:"";position:absolute;inset:0;z-index:-1;background:#5E4E2F;
-  transform:translateY(101%);transition:transform .55s var(--e)}
-.cta:hover::before,.cta:focus-visible::before{transform:none}
-.cta:hover{border-color:#5E4E2F;box-shadow:0 6px 22px -12px rgba(83,52,34,.5)}
-.cta:active{transform:translateY(1px)}
-.meta{font-family:var(--ui);font-size:14px;color:var(--testo-2);margin:26px 0 0}
-.meta strong{color:var(--testo);font-weight:600;
-  font-variant-numeric:lining-nums tabular-nums}
-
-/* scroll cue, as in the comps. Centred with `translate`, NOT `transform`:
-   the entrance animates `transform`, which would otherwise overwrite the
-   centering and shunt the cue to the right. */
-.cue{position:absolute;left:50%;bottom:30px;z-index:4;translate:-50% 0;
+.cue{position:absolute;left:50%;bottom:28px;z-index:4;translate:-50% 0;
   display:flex;flex-direction:column-reverse;align-items:center;gap:12px;
-  font-family:var(--ui);font-size:11px;font-weight:600;letter-spacing:.26em;
-  text-transform:uppercase;color:var(--oro-scuro)}
+  font-family:var(--ui);font-size:10.5px;font-weight:700;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--sub)}
 .cue em{font-style:normal}
-.cue span{display:block;width:1px;height:46px;
-  background:linear-gradient(transparent,var(--oro-scuro))}
-@media(max-width:820px){.cue{display:none}}
+.cue span{display:block;width:1px;height:42px;background:linear-gradient(transparent,var(--sub))}
+@media(max-width:900px){.cue{display:none}}
 
-@media(max-width:1180px){
-  .hero__media{width:64%}
-  .hero__in .col{max-width:30rem}
-}
-@media(max-width:820px){
-  /* she sits hard right in the plate: on a phone show the photo whole,
-     then set the type beneath it rather than over her face */
-  .hero{display:block;min-height:0;padding-top:80px}
+@media(max-width:1180px){ .hero__media{width:62%} .hero__in .col{max-width:30rem} }
+@media(max-width:860px){
+  /* the subject sits hard right in the plate: show the photo whole, then set
+     the type beneath it rather than over her face */
+  .hero{display:block;min-height:0;padding-top:72px}
   .hero__media{position:relative;inset:auto;width:100%;aspect-ratio:4/3;overflow:hidden;
     -webkit-mask-image:none;mask-image:none}
   .hero__media img,.hero__media video{object-position:72% 44%}
-  .hero__media::after{background:linear-gradient(180deg,
-    rgba(250,247,241,0) 58%,rgba(250,247,241,.86) 88%,var(--crema) 100%)}
+  .hero__media::after{background:linear-gradient(180deg,rgba(250,247,241,0) 58%,
+    rgba(250,247,241,.86) 88%,var(--crema) 100%)}
   .hero__in{padding:20px 0 56px}
   .hero__in .col{max-width:none}
-  /* on a phone the column is far too narrow to hold a sentence per line,
-     so the nowrap rule is lifted and the type is allowed to break */
-  h1{margin-bottom:22px;font-size:clamp(1.85rem,7.4vw,2.5rem);line-height:1.16;text-wrap:balance}
-  h1 span,h1 em{white-space:normal}
-  .sub{margin-bottom:30px;max-width:none;font-size:12px}
-  .cta{width:100%}
+  .hero .d1{font-size:clamp(1.85rem,7.2vw,2.5rem)}
+  .btn{width:100%}
+  .top .wrap{height:66px}
 }
 
-/* -------------------------------------------------- entrata (premium) --- */
-/* One orchestrated arrival: the plate settles from a slight over-scale while
-   the type rises in sequence.
-   TRANSFORM ONLY — deliberately no opacity anywhere. Two reasons, both real:
-   (1) with `forwards` fill and a delay, an element renders visible, then snaps
-   to opacity 0 the instant its animation starts — a flash on every load;
-   (2) with `both` fill it holds at opacity 0, so any page whose animation
-   clock never advances (background tab, throttled render, headless) ships
-   blank. Rising without fading is also the less generic move. Worst case here
-   is an element sitting a few pixels low, still fully readable. */
+/* --------------------------------------------------------- trust strip --- */
+.fiducia{border-block:1px solid var(--filo-2);background:var(--bianco)}
+.fiducia ul{display:grid;grid-template-columns:repeat(4,1fr)}
+.fiducia li{display:flex;gap:14px;align-items:flex-start;padding:30px clamp(16px,2vw,30px)}
+.fiducia li+li{border-left:1px solid var(--filo-2)}
+.fiducia svg{width:26px;height:26px;flex:none;color:var(--oro-chiaro);margin-top:2px}
+.fiducia b{display:block;font-family:var(--ui);font-size:11.5px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--testo);margin-bottom:6px}
+.fiducia p{margin:0;font-family:var(--ui);font-size:13.5px;line-height:1.55;color:var(--testo-2)}
+@media(max-width:1000px){
+  .fiducia ul{grid-template-columns:1fr 1fr}
+  .fiducia li:nth-child(3){border-left:0}
+  .fiducia li:nth-child(n+3){border-top:1px solid var(--filo-2)}
+}
+@media(max-width:600px){
+  .fiducia ul{grid-template-columns:1fr}
+  .fiducia li+li{border-left:0;border-top:1px solid var(--filo-2)}
+}
+
+/* -------------------------------------------------------------- metodo --- */
+.metodo{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  gap:clamp(40px,5vw,86px);align-items:start}
+@media(max-width:1000px){.metodo{grid-template-columns:1fr}}
+.passi{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+/* the connecting rule sits behind the numerals, drawn between their centres */
+.passi::before{content:"";position:absolute;top:26px;left:10%;right:10%;height:1px;
+  background:var(--boutique);opacity:.55}
+.passi li{position:relative;text-align:center;padding:0 6px}
+.passi .n{position:relative;display:flex;align-items:center;justify-content:center;
+  width:52px;height:52px;margin:0 auto 18px;border-radius:50%;
+  background:var(--blu-scuro);color:#fff;
+  font-family:var(--g);font-size:1.12rem;font-variant-numeric:lining-nums tabular-nums}
+.passi h3{font-family:var(--ui);font-size:12.5px;font-weight:700;letter-spacing:.06em;
+  line-height:1.4;text-transform:uppercase;color:var(--testo);margin-bottom:10px}
+.passi p{margin:0;font-family:var(--ui);font-size:12.5px;line-height:1.6;color:var(--testo-2)}
+@media(max-width:1000px){
+  .passi{grid-template-columns:1fr;gap:0}
+  .passi::before{top:0;bottom:0;left:26px;right:auto;width:1px;height:auto}
+  .passi li{text-align:left;display:grid;grid-template-columns:52px 1fr;
+    gap:0 20px;padding:0 0 26px}
+  .passi .n{margin:0}
+  .passi h3,.passi p{grid-column:2}
+  .passi li:last-child{padding-bottom:0}
+}
+
+/* ----------------------------------------------------------- risultati --- */
+.ris{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.4vw,34px);margin-top:52px}
+@media(max-width:900px){.ris{grid-template-columns:1fr;max-width:520px;margin-inline:auto}}
+.ris figure{margin:0}
+.ris .lastra{position:relative;background:var(--bianco);padding:10px;
+  border:1px solid var(--filo-2);box-shadow:0 18px 40px -28px rgba(59,52,42,.35)}
+.ris img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
+.ris .etichette{display:flex;margin-top:10px;font-family:var(--ui);font-size:10.5px;
+  font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--testo-2)}
+.ris .etichette span{flex:1;text-align:center}
+.ris figcaption{margin-top:14px;font-family:var(--ui);font-size:12.5px;
+  letter-spacing:.03em;color:var(--testo-2);text-align:center}
+.ris figcaption b{color:var(--testo);font-weight:600}
+
+/* ---------------------------------------------------------- recensioni --- */
+.rec{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(26px,3vw,50px);margin-top:48px}
+@media(max-width:900px){.rec{grid-template-columns:1fr}}
+.rec blockquote{margin:0;padding-top:24px;border-top:1px solid var(--filo)}
+.rec q{display:block;font-size:1.1rem;line-height:1.6;quotes:"“" "”";margin-bottom:16px}
+.rec cite{font-style:normal;font-family:var(--ui);font-size:11px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--sub)}
+
+/* ------------------------------------------------------------ esperienza - */
+.esp{display:grid;grid-template-columns:.62fr 1fr .9fr;gap:clamp(28px,3.4vw,56px);
+  align-items:center}
+@media(max-width:1080px){.esp{grid-template-columns:1fr 1fr}.esp__f{grid-column:1/-1;max-width:420px}}
+@media(max-width:760px){.esp{grid-template-columns:1fr}}
+.esp__f{margin:0;border:1px solid var(--filo-2);background:var(--bianco);padding:9px}
+.esp__f img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.esp__f figcaption{font-family:var(--ui);font-size:11px;color:var(--testo-2);
+  padding:9px 2px 2px;letter-spacing:.04em}
+.comprende{border-left:1px solid var(--filo);padding-left:clamp(20px,2.4vw,34px)}
+.comprende h3{font-family:var(--ui);font-size:11.5px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--testo);margin-bottom:18px}
+.comprende li{display:flex;gap:12px;align-items:flex-start;padding:9px 0;
+  font-family:var(--ui);font-size:14.5px;line-height:1.5;color:var(--testo-2)}
+.comprende svg{width:15px;height:15px;flex:none;color:var(--oro);margin-top:4px}
+@media(max-width:760px){.comprende{border-left:0;padding-left:0;border-top:1px solid var(--filo);padding-top:24px}}
+
+/* --------------------------------------------------------------- form ---- */
+.scheda{background:var(--bianco);border:1px solid var(--filo-2);
+  box-shadow:0 30px 70px -50px rgba(59,52,42,.4);padding:clamp(26px,3.4vw,54px)}
+.scheda__t{text-align:center;margin-bottom:clamp(28px,3vw,44px)}
+.scheda__t .d2{font-size:clamp(1.5rem,2.5vw,2.1rem)}
+.scheda__t b{display:block;font-family:var(--g);font-size:1.9rem;color:var(--oro);margin-top:8px;
+  font-variant-numeric:lining-nums tabular-nums}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,44px)}
+@media(max-width:1000px){.cols{grid-template-columns:1fr 1fr}.cols>div:nth-child(3){grid-column:1/-1}}
+@media(max-width:680px){.cols{grid-template-columns:1fr}}
+.passo{font-family:var(--ui);font-size:11.5px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--testo);margin-bottom:16px}
+.passo i{font-style:normal;color:var(--oro)}
+
+/* calendar */
+.cal__bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.cal__bar strong{font-family:var(--ui);font-size:13px;font-weight:600;letter-spacing:.04em;
+  text-transform:capitalize;color:var(--testo)}
+.cal__nav{width:32px;height:32px;border:1px solid var(--filo);background:transparent;
+  border-radius:3px;color:var(--testo);display:grid;place-items:center;
+  transition:background .25s var(--e),border-color .25s var(--e)}
+.cal__nav:hover:not(:disabled){background:var(--sabbia);border-color:var(--boutique)}
+.cal__nav:disabled{opacity:.3;cursor:not-allowed}
+.cal__nav svg{width:13px;height:13px}
+.cal{border:1px solid var(--filo-2);padding:12px}
+.cal__dow,.cal__grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.cal__dow span{font-family:var(--ui);font-size:9.5px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--testo-2);text-align:center;padding:6px 0}
+.cal__grid button{aspect-ratio:1;border:0;background:transparent;border-radius:3px;
+  font-family:var(--ui);font-size:13px;color:var(--testo);
+  transition:background .2s var(--e),color .2s var(--e)}
+.cal__grid button:hover:not(:disabled){background:var(--sabbia)}
+.cal__grid button:disabled{color:rgba(59,52,42,.26);cursor:not-allowed}
+.cal__grid button[aria-pressed="true"]{background:var(--blu-scuro);color:#fff}
+.cal__grid .vuoto{visibility:hidden}
+
+/* time slots */
+.ore{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.ore button{padding:13px 4px;border:1px solid var(--filo);background:var(--bianco);
+  border-radius:3px;font-family:var(--ui);font-size:13.5px;color:var(--testo);
+  transition:background .2s var(--e),border-color .2s var(--e),color .2s var(--e)}
+.ore button:hover:not(:disabled){border-color:var(--boutique)}
+.ore button:disabled{color:rgba(59,52,42,.26);background:var(--sabbia);cursor:not-allowed;
+  text-decoration:line-through}
+.ore button[aria-pressed="true"]{background:var(--blu-scuro);border-color:var(--blu-scuro);color:#fff}
+
+/* fields */
+.campo{margin-bottom:12px}
+.campo input,.campo textarea{width:100%;padding:14px 15px;border:1px solid var(--filo);
+  border-radius:3px;background:var(--bianco);font-family:var(--ui);font-size:15.5px;
+  color:var(--testo);transition:border-color .25s var(--e)}
+.campo textarea{min-height:86px;resize:vertical}
+.campo input::placeholder,.campo textarea::placeholder{color:#8C8474}
+.campo input:focus,.campo textarea:focus{outline:none;border-color:var(--blu-scuro)}
+.consenso{display:flex;gap:11px;align-items:flex-start;margin:16px 0 0;
+  font-family:var(--ui);font-size:12.5px;line-height:1.55;color:var(--testo-2)}
+.consenso input{width:17px;height:17px;flex:none;margin-top:1px;accent-color:var(--blu-scuro)}
+.consenso a{border-bottom:1px solid var(--boutique)}
+.ricap{font-family:var(--ui);font-size:13.5px;color:var(--testo-2);
+  margin:26px 0 14px;text-align:center;min-height:1.5em}
+.ricap b{color:var(--testo)}
+.garanzie{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 30px;margin-top:22px;
+  padding-top:20px;border-top:1px solid var(--filo-2)}
+.garanzie li{display:flex;align-items:center;gap:9px;font-family:var(--ui);font-size:12px;
+  color:var(--testo-2)}
+.garanzie svg{width:15px;height:15px;color:var(--oro-chiaro);flex:none}
+
+/* -------------------------------------------------------------- footer --- */
+footer{background:var(--blu-scuro);color:rgba(255,255,255,.74);
+  padding:clamp(52px,6vw,86px) 0 38px;font-family:var(--ui);font-size:14.5px}
+footer a{color:#fff}
+footer a:hover{border-bottom:1px solid rgba(255,255,255,.5)}
+footer .logo-t b{color:#fff}
+footer .logo-t span{color:#D9C79F}
+footer .logo svg{color:#D9C79F}
+footer .cols4{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px;
+  padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.16)}
+@media(max-width:900px){footer .cols4{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){footer .cols4{grid-template-columns:1fr}}
+footer h4{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.6);margin:0 0 14px}
+footer p{margin:0 0 .55em}
+.legale{margin-top:24px;font-size:12.5px;line-height:1.7;color:rgba(255,255,255,.6);max-width:82ch}
+
+/* ---------------------------------------------------------- sticky bar --- */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:var(--z-bar);display:none;
+  background:var(--crema);border-top:1px solid var(--filo);
+  padding:10px var(--pad) calc(10px + env(safe-area-inset-bottom));
+  transform:translateY(115%);transition:transform .35s var(--e)}
+.barra.su{transform:none}
+@media(max-width:860px){.barra{display:block}}
+
+/* --------------------------------------------------------------- motion -- */
+/* TRANSFORM ONLY, deliberately. Animating opacity from 0 either flashes on
+   load (with `forwards` fill) or ships a blank page whenever the animation
+   clock never advances (with `both`). Rising without fading avoids both, and
+   the worst case is an element a few pixels low but fully readable. */
 @media (prefers-reduced-motion:no-preference){
   .hero__media{animation:plate 2.2s var(--e-soft) both}
   @keyframes plate{from{transform:scale(1.05)}to{transform:none}}
-
-  h1 span,h1 em{animation:linea 1.25s var(--e) both}
-  h1 span{animation-delay:.14s}
-  h1 em{animation-delay:.30s}
-  @keyframes linea{from{transform:translateY(.34em)}to{transform:none}}
-
-  .logo,.nav-in,.sub,.cta,.meta,.cue,.mark-col{animation:sale 1.05s var(--e) both}
-  .logo{animation-delay:.05s}
-  .nav-in{animation-delay:.12s}
-  .sub{animation-delay:.48s}
-  .cta{animation-delay:.60s}
-  .meta{animation-delay:.70s}
-  .mark-col{animation-delay:.9s}
-  .cue{animation-delay:1.4s}
+  .hero .d1,.hero .lede,.hero .senza,.hero .prezzo,.hero .azioni{animation:sale 1.05s var(--e) both}
+  .hero .d1{animation-delay:.12s}
+  .hero .lede{animation-delay:.26s}
+  .hero .senza{animation-delay:.36s}
+  .hero .prezzo{animation-delay:.46s}
+  .hero .azioni{animation-delay:.56s}
+  .logo,.nav-in{animation:sale 1s var(--e) both}
+  .logo{animation-delay:.05s} .nav-in{animation-delay:.12s}
+  .cue{animation:sale 1s var(--e) 1.3s both}
   @keyframes sale{from{transform:translateY(15px)}to{transform:none}}
-
-  /* the cue breathes, drawing the eye down without a bouncing arrow */
-  .cue span{animation:respiro 3.4s ease-in-out 1.8s infinite;transform-origin:top}
-  @keyframes respiro{0%,100%{transform:scaleY(.45);opacity:.4}
-                     50%{transform:scaleY(1);opacity:1}}
+  .cue span{animation:respiro 3.4s ease-in-out 1.7s infinite;transform-origin:top}
+  @keyframes respiro{0%,100%{transform:scaleY(.45);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+  /* scroll-driven reveals; the finished state is the default so nothing can
+     ship blank if the timeline never runs */
+  @supports (animation-timeline:view()){
+    .rv{animation:rise linear both;animation-timeline:view();animation-range:entry 2% entry 56%}
+    @keyframes rise{from{transform:translateY(22px)}to{transform:none}}
+  }
+  @media(max-width:1080px){ .menu.nav-in{animation:none} }
 }
-
 @media (prefers-reduced-motion:reduce){ .hero__media video{display:none} }
+[id]{scroll-margin-top:96px}
 </style>
 </head>
 <body>
 <a class="skip" href="#hero">Vai al contenuto</a>
 
-<header class="top">
+<header class="top" id="top">
   <div class="wrap">
-    <a class="logo" href="#hero"><b>BLUE ROSE</b><span>BOUTIQUE</span></a>
+    <a class="logo" href="#hero">
+      <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <g stroke="currentColor" stroke-width="1.1">
+          <ellipse cx="20" cy="18" rx="4.2" ry="10.4"/>
+          <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(72 20 18)"/>
+          <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(144 20 18)"/>
+          <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(216 20 18)"/>
+          <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(288 20 18)"/>
+          <path d="M20 28.5V38" stroke-linecap="round"/>
+        </g>
+      </svg>
+      <span class="logo-t"><b>BLUE ROSE</b><span>BOUTIQUE</span></span>
+    </a>
     <nav class="menu nav-in" id="menu">
-      <a href="#">Metodo</a>
-      <a href="#">Risultati</a>
-      <a href="#">Chi siamo</a>
-      <a href="#">Recensioni</a>
-      <a href="#">Contatti</a>
+      <a href="#metodo">Il Metodo</a>
+      <a href="#risultati">Risultati</a>
+      <a href="#recensioni">Recensioni</a>
+      <a href="#prenota">Prenota</a>
     </nav>
+    <a class="btn" href="#prenota">Prenota il tuo Face to Face</a>
     <button class="ham" id="ham" aria-label="Menu" aria-expanded="false" aria-controls="menu"><i></i><i></i><i></i></button>
   </div>
 </header>
 
 <main>
+
+  <!-- ======================================================= HERO ======= -->
   <section class="hero" id="hero">
     <div class="hero__media">
       <video id="v" autoplay muted loop playsinline preload="auto" poster="media/hero-poster.jpg"
              aria-hidden="true" tabindex="-1">
-        <!-- 2x master on desktop where the plate is wide; the lighter
-             original on phones, where it already renders above native size -->
-        <source media="(min-width:821px)" src="media/hero@2x.mp4" type="video/mp4">
+        <source media="(min-width:861px)" src="media/hero@2x.mp4" type="video/mp4">
         <source src="media/hero.mp4" type="video/mp4">
       </video>
       <noscript><img src="media/hero.jpg" alt="Volto disteso, illuminato da luce naturale"></noscript>
     </div>
 
-    <div class="mark-col" aria-hidden="true"><b>01</b><i></i></div>
-
     <div class="hero__in">
       <div class="wrap">
         <div class="col">
-          <h1><span>La bellezza del tuo viso,</span><em>senza l'artificio del tempo.</em></h1>
-          <p class="sub">Un'alternativa avanzata alla medicina estetica per chi desidera risultati visibili nel rispetto della propria autenticità.</p>
-          <a class="cta" href="#">Inizia il tuo percorso</a>
-          <p class="meta">Primo appuntamento <strong>59&nbsp;€</strong>, anziché 150 &nbsp;·&nbsp; Olbia, via Roma 242</p>
+          <!-- Client-chosen headline. NOTE: the legal review flagged comparative
+               claims against medical services (D.Lgs 145/2007) as the highest
+               risk on this page. Safer variant, same positioning, one edit away:
+               <h1 class="d1">La via <em>naturale</em>, senza aghi.</h1> -->
+          <h1 class="d1">L'alternativa <em>naturale</em><br>alla medicina estetica.</h1>
+          <p class="lede">Il Metodo Face to Face è il protocollo esclusivo Blue Rose pensato per ridare luminosità, tono e freschezza al viso.</p>
+          <!-- "SENZA DOLORE" in the comp is an absolute claim about sensation and
+               cannot be substantiated. Replaced with verifiable facts. -->
+          <p class="senza">Senza aghi. &nbsp;Senza punture. &nbsp;Senza modificare i tuoi lineamenti.</p>
+          <div class="prezzo">
+            <b>59&thinsp;€</b>
+            <div><span>Esperienza<br>Face to Face</span><s>Valore 150&thinsp;€</s></div>
+          </div>
+          <div class="azioni">
+            <a class="btn" href="#prenota">Prenota il tuo Face to Face</a>
+            <a class="piu" href="#metodo">Scopri come funziona</a>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="cue" aria-hidden="true"><span></span><em>Scorri</em></div>
   </section>
+
+  <!-- ================================================== TRUST STRIP ===== -->
+  <div class="fiducia">
+    <div class="wrap">
+      <ul>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="7" width="18" height="12" rx="2"/><circle cx="12" cy="13" r="3.2"/><path d="M9 7l1.4-2h3.2L15 7"/></svg>
+          <div><b>Analisi avanzata</b><p>Con microcamera ad alta definizione</p></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg>
+          <div><b>Valutazione personalizzata</b><p>Studio professionale del tuo viso</p></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 20c-4.5 0-7.5-3-7.5-6.5C7 14 9.5 15.5 12 20Zm0 0c4.5 0 7.5-3 7.5-6.5C17 14 14.5 15.5 12 20Zm0 0c0-5 1.6-8.4 0-16-1.6 7.6 0 11 0 16Z"/></svg>
+          <div><b>Protocollo dedicato</b><p>Un percorso creato solo per te</p></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3.5l1.7 5.1 5.1 1.7-5.1 1.7L12 17l-1.7-5-5.1-1.7 5.1-1.7L12 3.5Z"/><path d="M18.5 16.5l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7.7-2Z"/></svg>
+          <div><b>Risultati naturali</b><p>Luminosità, tono e freschezza che rispettano la tua bellezza</p></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===================================================== METODO ======= -->
+  <section class="sec" id="metodo">
+    <div class="wrap metodo">
+      <div class="rv">
+        <p class="occhio">Il Metodo Face to Face</p>
+        <h2 class="d2">Un percorso esclusivo,<br><em>pensato per te.</em></h2>
+        <p class="lede" style="margin-top:22px">Ogni pelle è unica. Per questo il Metodo Face to Face unisce tecnologia avanzata e competenza estetica per risultati visibili e naturali.</p>
+        <div class="azioni"><a class="btn btn--vuoto" href="#prenota">Scopri il metodo</a></div>
+      </div>
+      <!-- Step copy deliberately avoids "in profondità": claims about actives
+           reaching a skin compartment are the depth claim the legal review
+           flagged CRITICAL for a non-medical estetista. -->
+      <ol class="passi rv">
+        <li><span class="n">01</span><h3>Analisi professionale</h3><p>Analisi della pelle con microcamera per leggerne la superficie e definire le reali esigenze.</p></li>
+        <li><span class="n">02</span><h3>Valutazione personalizzata</h3><p>Studio del viso e dei segni del tempo per definire le priorità di trattamento.</p></li>
+        <li><span class="n">03</span><h3>Protocollo esclusivo</h3><p>Creazione del tuo protocollo Face to Face, con trattamenti mirati e combinazioni su misura.</p></li>
+        <li><span class="n">04</span><h3>Trattamenti mirati</h3><p>Sedute non invasive, senza aghi, per un miglioramento visibile e naturale.</p></li>
+        <li><span class="n">05</span><h3>Mantenimento e risultati</h3><p>Piano personalizzato per mantenere nel tempo i risultati raggiunti.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================================================== RISULTATI ======= -->
+  <section class="sec azzurro" id="risultati">
+    <div class="wrap">
+      <div class="rv" style="text-align:center;max-width:44rem;margin-inline:auto">
+        <h2 class="d2">Risultati reali,<br><em>bellezza autentica.</em></h2>
+      </div>
+      <!-- Real client photographs, taken from Blue Rose's own live site.
+           Captions carry only what is verifiable: the concern treated. Age and
+           session counts are [DA CONFERMARE] with Veronica — not invented. -->
+      <div class="ris">
+        <figure class="rv">
+          <div class="lastra">
+            <img src="media/risultati/ris-02.webp" alt="Contorno occhi di una cliente prima e dopo il percorso Face to Face" loading="lazy">
+            <div class="etichette"><span>Prima</span><span>Dopo</span></div>
+          </div>
+          <figcaption><b>Rughe perioculari</b> · Percorso Face to Face</figcaption>
+        </figure>
+        <figure class="rv">
+          <div class="lastra">
+            <img src="media/risultati/ris-09.webp" alt="Guancia e contorno occhi di una cliente prima e dopo il percorso Face to Face" loading="lazy">
+            <div class="etichette"><span>Prima</span><span>Dopo</span></div>
+          </div>
+          <figcaption><b>Grana e luminosità</b> · Percorso Face to Face</figcaption>
+        </figure>
+        <figure class="rv">
+          <div class="lastra">
+            <img src="media/risultati/ris-10.webp" alt="Zona perioculare di una cliente prima e dopo il percorso Face to Face" loading="lazy">
+            <div class="etichette"><span>Prima</span><span>Dopo</span></div>
+          </div>
+          <figcaption><b>Tono e compattezza</b> · Percorso Face to Face</figcaption>
+        </figure>
+      </div>
+      <p class="mini rv" style="text-align:center;margin:34px 0 0">Fotografie di clienti Blue Rose. I risultati variano da persona a persona.</p>
+    </div>
+  </section>
+
+  <!-- ================================================= RECENSIONI ======= -->
+  <section class="sec" id="recensioni">
+    <div class="wrap">
+      <div class="rv" style="max-width:40rem">
+        <p class="occhio">Recensioni Google</p>
+        <h2 class="d2">Le parole delle nostre clienti.</h2>
+      </div>
+      <div class="rec">
+        <blockquote class="rv"><q>Premetto che sono una diffidente cronica, ma un giorno fisso un appuntamento da Blue Rose e lì si apre un mondo. Prima cosa ho riscontrato una grandissima gentilezza e professionalità e non da poco: l'onestà!</q><cite>Marcella M.</cite></blockquote>
+        <blockquote class="rv"><q>Veronica super professionale e ti personalizza i trattamenti in base alle tue esigenze. Da consigliare e da provare.</q><cite>Aneta L.</cite></blockquote>
+        <blockquote class="rv"><q>Trattamenti viso personalizzati, con prodotti di ottima qualità, eseguiti da personale super gentile, attento alle nostre esigenze e soprattutto molto professionale.</q><cite>Paola B.</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================= ESPERIENZA ======= -->
+  <section class="sec sabbia" id="esperienza">
+    <div class="wrap esp">
+      <figure class="esp__f rv">
+        <img src="media/hero-poster.jpg" alt="Blue Rose, via Roma 242, Olbia" loading="lazy">
+        <figcaption>Interno dell'istituto — foto da inserire</figcaption>
+      </figure>
+      <div class="rv">
+        <p class="occhio solo">Esperienza Face to Face</p>
+        <div class="prezzo" style="margin-bottom:18px">
+          <b>59&thinsp;€</b><div><s style="margin-top:0">Valore 150&thinsp;€</s></div>
+        </div>
+        <p class="lede">Se prosegui con il Percorso, i 59 € vengono scalati dal totale. Il preventivo ti viene dato in istituto, dopo l'analisi, e non prendi nessun impegno.</p>
+      </div>
+      <div class="comprende rv">
+        <h3>Cosa comprende</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Analisi della pelle con microcamera</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Valutazione personalizzata del viso</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Protocollo Face to Face dedicato</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Piano di trattamento personalizzato</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Prima esperienza Blue Rose</li>
+        </ul>
+        <div class="azioni"><a class="btn" href="#prenota">Prenota ora</a></div>
+        <p class="mini" style="margin:16px 0 0">Si riceve su appuntamento, una cliente alla volta.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================== PRENOTA ======= -->
+  <section class="sec" id="prenota" style="padding-top:0">
+    <div class="wrap">
+      <div class="scheda rv">
+        <div class="scheda__t">
+          <h2 class="d2">Prenota il tuo Metodo Face to Face</h2>
+          <b>59&thinsp;€</b>
+        </div>
+
+        <form class="cols" id="form" novalidate>
+          <div>
+            <p class="passo"><i>1.</i> Scegli il giorno</p>
+            <div class="cal">
+              <div class="cal__bar">
+                <button class="cal__nav" type="button" id="prev" aria-label="Mese precedente">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 5l-7 7 7 7"/></svg>
+                </button>
+                <strong id="mese"></strong>
+                <button class="cal__nav" type="button" id="next" aria-label="Mese successivo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+              <div class="cal__dow" aria-hidden="true">
+                <span>Lun</span><span>Mar</span><span>Mer</span><span>Gio</span><span>Ven</span><span>Sab</span><span>Dom</span>
+              </div>
+              <div class="cal__grid" id="grid" role="group" aria-label="Giorno"></div>
+            </div>
+          </div>
+
+          <div>
+            <p class="passo"><i>2.</i> Scegli l'orario</p>
+            <div class="ore" id="ore" role="group" aria-label="Orario"></div>
+          </div>
+
+          <div>
+            <p class="passo"><i>3.</i> I tuoi dati</p>
+            <div class="campo"><label class="skip" for="nome">Nome e cognome</label>
+              <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Nome e cognome"></div>
+            <div class="campo"><label class="skip" for="tel">Telefono</label>
+              <input id="tel" name="tel" type="tel" autocomplete="tel" placeholder="Telefono"></div>
+            <div class="campo"><label class="skip" for="mail">Email</label>
+              <input id="mail" name="mail" type="email" autocomplete="email" placeholder="Email"></div>
+            <div class="campo"><label class="skip" for="note">Note</label>
+              <textarea id="note" name="note" placeholder="Note (facoltative)"></textarea></div>
+            <!-- TODO go-live: the privacy policy does not exist yet. This link
+                 must point at a real GDPR notice before any data is collected. -->
+            <label class="consenso"><input type="checkbox" id="privacy">
+              <span>Accetto l'<a href="#" target="_blank" rel="noopener">informativa sulla privacy</a></span></label>
+          </div>
+        </form>
+
+        <p class="ricap" id="ricap">Scegli il giorno e l'orario per proseguire.</p>
+        <a class="btn btn--large" id="invia" href="https://wa.me/393282451396" target="_blank" rel="noopener">Prenota il tuo Face to Face — 59&thinsp;€</a>
+
+        <!-- The comp promised "Conferma immediata · Promemoria automatici ·
+             Modifica o annulla quando vuoi". None of that exists: the
+             gestionale's booking module is still deactivated, so there is no
+             automated confirmation and no reminders. These three say what
+             actually happens instead. -->
+        <ul class="garanzie">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3a9 9 0 1 0 4.5 16.8L21 21l-1.3-4.2A9 9 0 0 0 12 3Z"/></svg> La richiesta arriva su WhatsApp</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M8 12.4l2.6 2.6L16 9.6"/></svg> Confermata da Veronica</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10.5h18"/></svg> Nessun pagamento online</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 </main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols4">
+      <div>
+        <a class="logo" href="#hero">
+          <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <g stroke="currentColor" stroke-width="1.1">
+              <ellipse cx="20" cy="18" rx="4.2" ry="10.4"/>
+              <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(72 20 18)"/>
+              <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(144 20 18)"/>
+              <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(216 20 18)"/>
+              <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(288 20 18)"/>
+              <path d="M20 28.5V38" stroke-linecap="round"/>
+            </g>
+          </svg>
+          <span class="logo-t"><b>BLUE ROSE</b><span>BOUTIQUE</span></span>
+        </a>
+        <p style="margin-top:18px;max-width:32ch">Centro estetico a Olbia specializzato nel trattamento viso senza aghi, con analisi della pelle a microcamera.</p>
+      </div>
+      <div>
+        <h4>Dove siamo</h4>
+        <p>Via Roma 242<br>07026 Olbia (SS)</p>
+        <p><a href="https://maps.google.com/?q=Via+Roma+242,+07026+Olbia+SS" target="_blank" rel="noopener">Apri in Google Maps</a></p>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <p><a href="tel:+393282451396">+39 328 245 1396</a></p>
+        <p><a href="https://wa.me/393282451396" target="_blank" rel="noopener">Scrivici su WhatsApp</a></p>
+      </div>
+      <div>
+        <h4>Orari</h4>
+        <p>Su appuntamento</p>
+        <p style="color:rgba(255,255,255,.45)">Orari di apertura da confermare</p>
+      </div>
+    </div>
+    <p class="legale">
+      Blue Rose è un centro estetico. L'attività è svolta ai sensi della L. 1/1990. I trattamenti hanno finalità estetica e non medica: non costituiscono prestazione sanitaria e non sostituiscono il parere o l'intervento di un medico. L'analisi della pelle con microcamera è una valutazione estetica, non una diagnosi. I risultati variano da persona a persona.
+    </p>
+  </div>
+</footer>
+
+<div class="barra" id="barra">
+  <a class="btn btn--large" href="#prenota">Prenota — 59&thinsp;€</a>
+</div>
 
 <script>
 (function(){
+  "use strict";
+  var TEL='393282451396';
+  var GG=['domenica','lunedì','martedì','mercoledì','giovedì','venerdì','sabato'];
+  var MM=['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto',
+          'settembre','ottobre','novembre','dicembre'];
+  var ORE=['09:00','09:45','10:30','11:15','12:00','12:45','14:00','14:45','15:30','16:15','17:00','17:45'];
+  var CHIUSI=[0,1];                 /* closed Sunday and Monday */
+  var PAUSA=['12:00','14:45'];      /* slots shown unavailable */
+
+  /* ---- header + sticky bar ------------------------------------------- */
+  var top=document.getElementById('top'), barra=document.getElementById('barra'),
+      pren=document.getElementById('prenota');
+  addEventListener('scroll',function(){
+    top.classList.toggle('giu', scrollY>26);
+    var mostra = scrollY>620;
+    var r=pren.getBoundingClientRect();
+    if(r.top<innerHeight && r.bottom>0) mostra=false;   /* never two CTAs at once */
+    barra.classList.toggle('su', mostra);
+  },{passive:true});
+
+  /* ---- mobile drawer -------------------------------------------------- */
   var ham=document.getElementById('ham'), menu=document.getElementById('menu');
+  function chiudi(){ menu.classList.remove('aperto'); ham.setAttribute('aria-expanded','false'); }
   ham.addEventListener('click',function(){
     var a=menu.classList.toggle('aperto');
-    ham.setAttribute('aria-expanded',a?'true':'false');
+    ham.setAttribute('aria-expanded', a?'true':'false');
   });
-  menu.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click',function(){ menu.classList.remove('aperto'); ham.setAttribute('aria-expanded','false'); });
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',chiudi); });
+
+  /* ---- calendar ------------------------------------------------------- */
+  var oggi=new Date(); oggi.setHours(0,0,0,0);
+  var vista=new Date(oggi.getFullYear(), oggi.getMonth(), 1);
+  var scelto=null, ora=null;
+
+  /* Late in the month there may be almost nothing left to book, and a calendar
+     opening on two selectable days reads as broken. Count what's actually
+     available and start on the next month if this one is nearly spent. */
+  (function(){
+    var ultimo=new Date(oggi.getFullYear(), oggi.getMonth()+1, 0).getDate();
+    var liberi=0;
+    for(var d=oggi.getDate(); d<=ultimo; d++){
+      var dt=new Date(oggi.getFullYear(), oggi.getMonth(), d);
+      if(CHIUSI.indexOf(dt.getDay())<0) liberi++;
+    }
+    if(liberi<3) vista.setMonth(vista.getMonth()+1);
+  })();
+  var grid=document.getElementById('grid'), mese=document.getElementById('mese'),
+      prev=document.getElementById('prev'), next=document.getElementById('next'),
+      oreBox=document.getElementById('ore'), ricap=document.getElementById('ricap'),
+      invia=document.getElementById('invia');
+
+  function stessoGiorno(a,b){ return a&&b&&a.getTime()===b.getTime(); }
+
+  function disegna(){
+    mese.textContent = MM[vista.getMonth()]+' '+vista.getFullYear();
+    grid.innerHTML='';
+    var primo=new Date(vista.getFullYear(), vista.getMonth(), 1);
+    /* Monday-first grid: JS getDay() is Sunday-first, so shift by one */
+    var offset=(primo.getDay()+6)%7;
+    for(var i=0;i<offset;i++){
+      var v=document.createElement('span'); v.className='vuoto'; grid.appendChild(v);
+    }
+    var ultimo=new Date(vista.getFullYear(), vista.getMonth()+1, 0).getDate();
+    for(var d=1; d<=ultimo; d++){
+      var data=new Date(vista.getFullYear(), vista.getMonth(), d);
+      var b=document.createElement('button');
+      b.type='button'; b.textContent=d;
+      var passato = data < oggi;
+      var chiuso  = CHIUSI.indexOf(data.getDay())>=0;
+      if(passato||chiuso){ b.disabled=true; }
+      else {
+        b.setAttribute('aria-pressed', stessoGiorno(data,scelto)?'true':'false');
+        b.dataset.iso=data.toISOString().slice(0,10);
+        b.dataset.testo=GG[data.getDay()]+' '+d+' '+MM[data.getMonth()];
+        (function(dt){ b.addEventListener('click',function(){ scelto=dt; disegna(); agg(); }); })(data);
+      }
+      grid.appendChild(b);
+    }
+    /* can't navigate before the current month */
+    prev.disabled = (vista.getFullYear()===oggi.getFullYear() && vista.getMonth()===oggi.getMonth());
+  }
+  prev.addEventListener('click',function(){ vista.setMonth(vista.getMonth()-1); disegna(); });
+  next.addEventListener('click',function(){ vista.setMonth(vista.getMonth()+1); disegna(); });
+
+  ORE.forEach(function(t){
+    var b=document.createElement('button');
+    b.type='button'; b.textContent=t;
+    if(PAUSA.indexOf(t)>=0){ b.disabled=true; }
+    else{
+      b.setAttribute('aria-pressed','false');
+      b.addEventListener('click',function(){
+        oreBox.querySelectorAll('button').forEach(function(x){
+          if(!x.disabled) x.setAttribute('aria-pressed','false');
+        });
+        b.setAttribute('aria-pressed','true'); ora=t; agg();
+      });
+    }
+    oreBox.appendChild(b);
   });
 
-  /* Some in-app browsers (Instagram, Facebook) ignore autoplay until a
-     gesture. Fall back to the poster rather than showing a dead frame. */
-  var v=document.getElementById('v');
-  if(v){
-    var go=v.play();
-    if(go&&go.catch) go.catch(function(){ v.removeAttribute('autoplay'); });
+  /* ---- compose the WhatsApp handoff ----------------------------------- */
+  /* No backend exists, so nothing is stored server-side: the fields are folded
+     into a message she sends from her own WhatsApp. The last irreversible tap
+     is hers, in her own app. */
+  function agg(){
+    if(!scelto || !ora){
+      ricap.textContent='Scegli il giorno e l’orario per proseguire.';
+      invia.href='https://wa.me/'+TEL;
+      return;
+    }
+    var testo = GG[scelto.getDay()]+' '+scelto.getDate()+' '+MM[scelto.getMonth()];
+    ricap.innerHTML='Richiesta per <b>'+testo+'</b> alle <b>'+ora+'</b>.';
+    var nome=document.getElementById('nome').value.trim();
+    var tel =document.getElementById('tel').value.trim();
+    var mail=document.getElementById('mail').value.trim();
+    var note=document.getElementById('note').value.trim();
+    var m='Buongiorno Veronica, le scrivo dal sito. Vorrei prenotare l’Esperienza Face to Face a 59 euro. '
+        + 'Se possibile preferirei '+testo+' alle '+ora+'.';
+    if(nome) m+=' Mi chiamo '+nome+'.';
+    if(tel)  m+=' Telefono: '+tel+'.';
+    if(mail) m+=' Email: '+mail+'.';
+    if(note) m+=' '+note;
+    invia.href='https://wa.me/'+TEL+'?text='+encodeURIComponent(m);
   }
+  ['nome','tel','mail','note'].forEach(function(id){
+    document.getElementById(id).addEventListener('input',agg);
+  });
+
+  disegna(); agg();
 })();
 </script>
 </body>
