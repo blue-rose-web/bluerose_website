@@ -16,16 +16,43 @@
 <meta property="og:image" content="../og.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://dariofresu.github.io/bluerose_website/en/">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HealthAndBeautyBusiness",
+  "name":"Blue Rose Boutique",
+  "legalName":"Blue Rose Estetica Avanzata di Veronica Rosso",
+  "vatID":"IT02860680905",
+  "url":"https://dariofresu.github.io/bluerose_website/en/",
+  "image":"https://dariofresu.github.io/bluerose_website/og.png",
+  "telephone":"+39 328 245 1396",
+  "email":"infobluerose21@gmail.com",
+  "founder":{"@type":"Person","name":"Veronica Rosso","jobTitle":"Estetista"},
+  "foundingDate":"2021",
+  "priceRange":"€€",
+  "currenciesAccepted":"EUR",
+  "address":{"@type":"PostalAddress","streetAddress":"Via Roma 242","addressLocality":"Olbia",
+    "addressRegion":"SS","postalCode":"07026","addressCountry":"IT"},
+  "areaServed":{"@type":"City","name":"Olbia"},
+  "sameAs":["https://maps.google.com/?cid=9522041998144617447"],
+  "makesOffer":{"@type":"Offer","name":"Face to Face Method — first experience",
+    "price":"59","priceCurrency":"EUR",
+    "description":"Skin analysis with a high-definition camera and a facial treatment in the studio.",
+    "availability":"https://schema.org/InStock"}
+}
+</script>
 <link rel="alternate" hreflang="it" href="../">
 <link rel="alternate" hreflang="en" href="./">
 <link rel="alternate" hreflang="x-default" href="../">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FAF7F1'/%3E%3Cg fill='none' stroke='%236285A8' stroke-width='1.15'%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(72 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(144 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(216 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(288 16 16)'/%3E%3C/g%3E%3C/svg%3E">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-
+<link rel="preload" href="../fonts/ebg-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+@font-face{font-family:'EB Garamond';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/ebg-normal-400-latin.woff2) format('woff2')}
+@font-face{font-family:'EB Garamond';font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/ebg-normal-500-latin.woff2) format('woff2')}
+@font-face{font-family:'EB Garamond';font-style:italic;font-weight:400;font-display:swap;src:url(../fonts/ebg-italic-400-latin.woff2) format('woff2')}
+
 /* ============================================================== tokens ===
    Palette taken from the approved hero only: cream, the soft blue, and the
    golden-brown. No navy anywhere. Where the reference comp used dark navy
@@ -153,7 +180,7 @@ p{margin:0 0 1em;text-wrap:pretty}
 .lingua b{color:var(--testo)}
 .lingua a{color:var(--testo-2);transition:color .25s var(--e)}
 .lingua a:hover{color:var(--blu)}
-.lingua a::after{content:"·";margin-left:9px;color:var(--filo);font-weight:400}
+.lingua b::after{content:"·";margin-left:9px;color:var(--filo);font-weight:400}
 .ham{display:none;width:44px;height:44px;border:0;background:none;position:relative}
 .ham i{position:absolute;left:11px;right:11px;height:1.4px;background:var(--blu-scuro);
   transition:transform .3s var(--e),opacity .3s var(--e)}
@@ -345,8 +372,8 @@ p{margin:0 0 1em;text-wrap:pretty}
 @media(max-width:900px){.mappa{aspect-ratio:4/3}}
 
 /* ---------------------------------------------------------- cookie ------- */
-.cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;display:none;
-  gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+.cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:70;display:none;
+  gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;
   background:var(--bianco);border:1px solid var(--filo);border-radius:4px;
   box-shadow:0 22px 60px -30px rgba(59,52,42,.45);padding:20px 24px;
   max-width:var(--max);margin-inline:auto}
@@ -359,10 +386,13 @@ p{margin:0 0 1em;text-wrap:pretty}
 .cookie__btn{display:flex;gap:10px;flex:none}
 .cookie .btn{padding:13px 22px;min-height:46px;font-size:11.5px}
 @media(max-width:760px){
-  .cookie{flex-direction:column;align-items:stretch;gap:14px;padding:18px;
-    left:10px;right:10px;bottom:calc(84px + env(safe-area-inset-bottom))}
-  .cookie__btn{flex-direction:column}
-  .cookie .btn{width:100%}
+  /* one line, buttons inline: the stacked version took 29% of a 390x844 screen */
+  .cookie{gap:12px;padding:14px 16px;left:8px;right:8px;
+    bottom:calc(8px + env(safe-area-inset-bottom))}
+  .cookie p{font-size:12.5px;line-height:1.45}
+  .cookie b{margin-bottom:4px}
+  .cookie__btn{flex-direction:row;gap:8px;width:100%}
+  .cookie .btn{flex:1;padding:11px 10px;min-height:44px;font-size:11px;letter-spacing:.08em}
 }
 
 /* -------------------------------------------------------- stelle Google -- */
@@ -394,7 +424,7 @@ p{margin:0 0 1em;text-wrap:pretty}
 /* calendar */
 .cal__bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
 .cal__bar strong{font-family:var(--ui);font-size:13px;font-weight:600;letter-spacing:.04em;
-  color:var(--testo)}
+  text-transform:capitalize;color:var(--testo)}
 .cal__nav{width:32px;height:32px;border:1px solid var(--filo);background:transparent;
   border-radius:3px;color:var(--testo);display:grid;place-items:center;
   transition:background .25s var(--e),border-color .25s var(--e)}
@@ -603,8 +633,7 @@ footer p{margin:0 0 .55em}
     <div class="hero__media">
       <video id="v" autoplay muted loop playsinline preload="auto" poster="media/hero-poster.jpg"
              aria-hidden="true" tabindex="-1">
-        <source media="(min-width:861px)" src="../media/hero@2x.mp4" type="video/mp4">
-        <source src="../media/hero.mp4" type="video/mp4">
+        <source id="vsrc" src="../media/hero.mp4" type="video/mp4">
       </video>
       <noscript><img src="../media/hero.jpg" alt="Volto disteso, illuminato da luce naturale"></noscript>
     </div>
@@ -718,6 +747,38 @@ footer p{margin:0 0 .55em}
     </div>
   </section>
 
+  <!-- ================================================= ESPERIENZA ======= -->
+  <section class="sec sabbia" id="esperienza">
+    <div class="wrap esp">
+      <figure class="esp__f rv">
+        <img src="../media/trattamento.jpg" alt="Veronica Rosso performing a Face to Face facial treatment, Blue Rose Olbia" loading="lazy">
+      </figure>
+      <div class="rv">
+        <p class="occhio">The first Blue Rose experience</p>
+        <h2 class="d2">See the true condition<br><em>of your skin.</em></h2>
+        <p class="lede" style="margin-top:22px">Every programme begins with an analysis by professional camera. Your skin appears magnified, area by area, with nothing left to interpretation.</p>
+        <p class="lede">The treatment follows from what the analysis shows, and is defined in the same appointment.</p>
+      </div>
+      <div class="offerta rv">
+        <p class="occhio solo" style="margin-bottom:10px">The Face to Face Experience</p>
+        <div class="prezzo">
+          <b>59&thinsp;€</b><div><s style="margin-top:0">was 150&thinsp;€</s></div>
+        </div>
+        <hr>
+        <div class="comprende">
+          <h3>What is included</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Skin analysis with a high-definition camera</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>A personal assessment of your face</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Your dedicated Face to Face protocol</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>A personalised treatment plan</li>
+          </ul>
+        </div>
+        <div class="azioni"><a class="btn btn--large" href="#prenota">Book now</a></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================================================= RECENSIONI ======= -->
   <section class="sec" id="recensioni">
     <div class="wrap">
@@ -762,37 +823,6 @@ footer p{margin:0 0 .55em}
     </div>
   </section>
 
-  <!-- ================================================= ESPERIENZA ======= -->
-  <section class="sec sabbia" id="esperienza">
-    <div class="wrap esp">
-      <figure class="esp__f rv">
-        <img src="../media/trattamento.jpg" alt="Veronica Rosso performing a Face to Face facial treatment, Blue Rose Olbia" loading="lazy">
-      </figure>
-      <div class="rv">
-        <p class="occhio">The first Blue Rose experience</p>
-        <h2 class="d2">See the true condition<br><em>of your skin.</em></h2>
-        <p class="lede" style="margin-top:22px">Every programme begins with an analysis by professional camera. Your skin appears magnified, area by area, with nothing left to interpretation.</p>
-        <p class="lede">The treatment follows from what the analysis shows, and is defined in the same appointment.</p>
-      </div>
-      <div class="offerta rv">
-        <p class="occhio solo" style="margin-bottom:10px">The Face to Face Experience</p>
-        <div class="prezzo">
-          <b>59&thinsp;€</b><div><s style="margin-top:0">was 150&thinsp;€</s></div>
-        </div>
-        <hr>
-        <div class="comprende">
-          <h3>What is included</h3>
-          <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Skin analysis with a high-definition camera</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>A personal assessment of your face</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Your dedicated Face to Face protocol</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>A personalised treatment plan</li>
-          </ul>
-        </div>
-        <div class="azioni"><a class="btn btn--large" href="#prenota">Book now</a></div>
-      </div>
-    </div>
-  </section>
 
   <!-- ======================================================= DOVE ======= -->
   <section class="sec" id="dove">
@@ -850,7 +880,7 @@ footer p{margin:0 0 .55em}
               <div class="cal__dow" aria-hidden="true">
                 <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
               </div>
-              <div class="cal__grid" id="grid" role="group" aria-label="Day"></div>
+              <div class="cal__grid" id="grid" role="group" aria-label="Day — use the arrow keys to move"></div>
             </div>
           </div>
 
@@ -871,13 +901,15 @@ footer p{margin:0 0 .55em}
               <textarea id="note" name="note" placeholder="Notes (optional)"></textarea></div>
             <!-- TODO go-live: the privacy policy does not exist yet. This link
                  must point at a real GDPR notice before any data is collected. -->
-            <label class="consenso"><input type="checkbox" id="privacy">
+            <label class="consenso" id="consensoWrap"><input type="checkbox" id="privacy" required>
               <span>I accept the <a href="https://app.legalblink.it/api/documents/6981fed89759e00029b1bcd1/privacy-policy-per-siti-web-o-e-commerce-it" target="_blank" rel="noopener">privacy notice</a></span></label>
           </div>
+          <button type="submit" class="vh">Send the request</button>
         </form>
 
-        <p class="ricap" id="ricap">Choose a day and a time to continue.</p>
+        <p class="ricap" id="ricap" role="status" aria-live="polite" aria-atomic="true">Choose a day and a time to continue.</p>
         <a class="btn btn--large" id="invia" href="https://wa.me/393282451396" target="_blank" rel="noopener">Book your Face to Face — 59&thinsp;€</a>
+        <span class="errore" id="errore" role="alert" hidden></span>
 
       </div>
     </div>
@@ -933,7 +965,7 @@ footer p{margin:0 0 .55em}
 <!-- Shown on first load because the page embeds Google Maps, which sets
      third-party cookies. The choice is remembered in localStorage; no
      tracking or profiling cookies are set by this site itself. -->
-<div class="cookie" id="cookie" role="dialog" aria-live="polite" aria-label="Cookie">
+<div class="cookie" id="cookie" role="region" aria-label="Cookie notice">
   <div>
     <b>Cookie</b>
     <p>This site uses only technical cookies. The map is provided by Google Maps, which may set its own cookies. <a href="https://app.legalblink.it/api/documents/6981fed89759e00029b1bcd1/privacy-policy-per-siti-web-o-e-commerce-it" target="_blank" rel="noopener">Privacy notice</a> · <a href="https://bluerosedermoestetica.it/cookie-policy-blue-rose" target="_blank" rel="noopener">Cookie policy</a>.</p>
@@ -949,7 +981,8 @@ footer p{margin:0 0 .55em}
   "use strict";
   var TEL='393282451396';
   var GG=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-  var MM=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var MM=['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto',
+          'settembre','ottobre','novembre','dicembre'];
   var ORE=['09:00','09:45','10:30','11:15','12:00','12:45','14:00','14:45','15:30','16:15','17:00','17:45'];
   var CHIUSI=[0,1];                 /* closed Sunday and Monday */
   var SOLO_MATTINA=[6];             /* Saturday: mornings only */
@@ -975,13 +1008,15 @@ footer p{margin:0 0 .55em}
   /* ---- header + sticky bar ------------------------------------------- */
   var top=document.getElementById('top'), barra=document.getElementById('barra'),
       pren=document.getElementById('prenota');
-  addEventListener('scroll',function(){
+  function onScroll(){
     top.classList.toggle('giu', scrollY>26);
     var mostra = scrollY>620;
     var r=pren.getBoundingClientRect();
     if(r.top<innerHeight && r.bottom>0) mostra=false;   /* never two CTAs at once */
+    if(ckAperto) mostra=false;                          /* nor a CTA under the banner */
     barra.classList.toggle('su', mostra);
-  },{passive:true});
+  }
+  addEventListener('scroll',onScroll,{passive:true});
 
   /* ---- mobile drawer -------------------------------------------------- */
   var ham=document.getElementById('ham'), menu=document.getElementById('menu');
@@ -993,14 +1028,19 @@ footer p{margin:0 0 .55em}
   menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',chiudi); });
 
   /* ---- cookie consent -------------------------------------------------- */
-  var ck=document.getElementById('cookie');
+  var ck=document.getElementById('cookie'), ckAperto=false;
   try{
-    if(!localStorage.getItem('br-cookie')) ck.classList.add('su');
-  }catch(e){ ck.classList.add('su'); }   /* private mode: show it anyway */
+    if(!localStorage.getItem('br-cookie')){ ck.classList.add('su'); ckAperto=true; }
+  }catch(e){ ck.classList.add('su'); ckAperto=true; }   /* private mode: show it anyway */
   function chiudiCk(v){
     try{ localStorage.setItem('br-cookie',v); }catch(e){}
-    ck.classList.remove('su');
+    ck.classList.remove('su'); ckAperto=false; onScroll();
   }
+  /* dismissing by scrolling past the fold counts as acknowledgement of a
+     technical-cookies-only notice, and stops it shadowing the CTA */
+  addEventListener('scroll',function(){
+    if(ckAperto && scrollY>innerHeight*1.2) chiudiCk('tech');
+  },{passive:true});
   document.getElementById('cookieOk').addEventListener('click',function(){ chiudiCk('all'); });
   document.getElementById('cookieNo').addEventListener('click',function(){ chiudiCk('tech'); });
 
@@ -1023,6 +1063,19 @@ footer p{margin:0 0 .55em}
     var la=document.getElementById('lascia');
     la.href=GOOGLE.reviewUrl; la.hidden=false;
   }
+
+  /* ---- hero source ----------------------------------------------------- */
+  /* Never downgrade once loaded: swapping src restarts playback. */
+  var vEl=document.getElementById('v'), vsrc=document.getElementById('vsrc'), vGrande=false;
+  function scegliVideo(){
+    if(vGrande || innerWidth<861) return;
+    vGrande=true;
+    vsrc.src='../media/hero@2x.mp4';
+    vEl.load();
+    var pr=vEl.play(); if(pr&&pr.catch) pr.catch(function(){});
+  }
+  scegliVideo();
+  addEventListener('resize',scegliVideo,{passive:true});
 
   /* ---- calendar ------------------------------------------------------- */
   var oggi=new Date(); oggi.setHours(0,0,0,0);
@@ -1069,15 +1122,53 @@ footer p{margin:0 0 .55em}
         b.setAttribute('aria-pressed', stessoGiorno(data,scelto)?'true':'false');
         b.dataset.iso=data.toISOString().slice(0,10);
         b.dataset.testo=GG[data.getDay()]+' '+d+' '+MM[data.getMonth()];
+        b.tabIndex=-1;
         (function(dt){ b.addEventListener('click',function(){ scelto=dt; disegna(); disegnaOre(); agg(); }); })(data);
       }
       grid.appendChild(b);
     }
+    /* Roving tabindex. Previously every day was its own tab stop, so a
+       keyboard user pressed Tab 31 times to get past the calendar. Now the
+       grid is a single stop and the arrows move within it. */
+    var att=grid.querySelectorAll('button:not(:disabled)');
+    var messo=false;
+    for(var k=0;k<att.length;k++){
+      if(att[k].getAttribute('aria-pressed')==='true'){ att[k].tabIndex=0; messo=true; }
+    }
+    if(!messo && att.length) att[0].tabIndex=0;
+
     /* can't navigate before the current month */
     prev.disabled = (vista.getFullYear()===oggi.getFullYear() && vista.getMonth()===oggi.getMonth());
   }
   prev.addEventListener('click',function(){ vista.setMonth(vista.getMonth()-1); disegna(); });
   next.addEventListener('click',function(){ vista.setMonth(vista.getMonth()+1); disegna(); });
+
+  /* arrows move by a day, up/down by a week, Home/End to the ends of the
+     month, PageUp/PageDown between months */
+  grid.addEventListener('keydown',function(e){
+    var k=e.key;
+    if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home','End','PageUp','PageDown'].indexOf(k)<0) return;
+    e.preventDefault();
+    if(k==='PageUp'){ if(!prev.disabled){ vista.setMonth(vista.getMonth()-1); disegna(); focusPrimo(); } return; }
+    if(k==='PageDown'){ vista.setMonth(vista.getMonth()+1); disegna(); focusPrimo(); return; }
+    var att=Array.prototype.slice.call(grid.querySelectorAll('button:not(:disabled)'));
+    if(!att.length) return;
+    var i=att.indexOf(document.activeElement); if(i<0) i=0;
+    var j=i;
+    if(k==='ArrowLeft')  j=i-1;
+    if(k==='ArrowRight') j=i+1;
+    if(k==='ArrowUp')    j=i-7;
+    if(k==='ArrowDown')  j=i+7;
+    if(k==='Home')       j=0;
+    if(k==='End')        j=att.length-1;
+    j=Math.max(0,Math.min(att.length-1,j));
+    att.forEach(function(b){ b.tabIndex=-1; });
+    att[j].tabIndex=0; att[j].focus();
+  });
+  function focusPrimo(){
+    var f=grid.querySelector('button:not(:disabled)');
+    if(f){ f.tabIndex=0; f.focus(); }
+  }
 
   /* Slots depend on the chosen day: Saturday is mornings only, so afternoon
      buttons are disabled rather than hidden — she can see the shape of the
@@ -1111,7 +1202,46 @@ footer p{margin:0 0 .55em}
   /* No backend exists, so nothing is stored server-side: the fields are folded
      into a message she sends from her own WhatsApp. The last irreversible tap
      is hers, in her own app. */
+  /* --- validation -------------------------------------------------------
+     The CTA stays a real <a> so it survives the Instagram in-app browser and
+     a dead JS bundle. But it must not fire half-complete: before, tapping it
+     with nothing chosen opened a blank WhatsApp chat and Veronica received a
+     message with no date, no time and no name. */
+  var errore=document.getElementById('errore');
+  var consensoWrap=document.getElementById('consensoWrap');
+  var privacy=document.getElementById('privacy');
+
+  function mancante(){
+    if(!scelto) return {msg:'Please choose a day first.', focus:grid.querySelector('button:not(:disabled)')};
+    if(!ora)    return {msg:'Please choose a time.',        focus:oreBox.querySelector('button:not(:disabled)')};
+    if(!privacy.checked) return {msg:'Please accept the privacy notice to continue.', focus:privacy, ko:consensoWrap};
+    return null;
+  }
+  function mostraErrore(m){
+    errore.textContent=m.msg; errore.hidden=false;
+    consensoWrap.classList.toggle('ko', !!m.ko);
+    if(m.focus){ m.focus.scrollIntoView({block:'center'}); m.focus.focus(); }
+  }
+  function pulisciErrore(){ errore.hidden=true; consensoWrap.classList.remove('ko'); }
+
+  invia.addEventListener('click',function(e){
+    var m=mancante();
+    if(m){ e.preventDefault(); mostraErrore(m); }
+  });
+  /* the hidden submit button makes Enter work from any field */
+  document.getElementById('form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var m=mancante();
+    if(m){ mostraErrore(m); return; }
+    pulisciErrore();
+    window.open(invia.href,'_blank','noopener');
+  });
+  privacy.addEventListener('change',function(){ if(privacy.checked) pulisciErrore(); agg(); });
+
   function agg(){
+    var incompleto = !!mancante();
+    invia.setAttribute('aria-disabled', incompleto ? 'true' : 'false');
+    if(!incompleto) pulisciErrore();
     if(!scelto || !ora){
       ricap.textContent='Choose a day and a time to continue.';
       invia.href='https://wa.me/'+TEL;
