@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="it">
 <head>
 <meta charset="utf-8">
@@ -301,25 +301,18 @@ p{margin:0 0 1em;text-wrap:pretty}
 @media(max-width:900px){.vero{grid-template-columns:1fr;gap:34px}}
 /* A portrait-shaped hole, made deliberate. The real photograph drops into the
    same 4:5 frame later with no layout change and no re-approval. */
-.ritratto{position:relative;margin:0;aspect-ratio:4/5;background:var(--bianco);
-  border:1px solid var(--oro-chiaro);display:grid;place-items:center;text-align:center;
-  padding:clamp(22px,3vw,40px);overflow:hidden}
-.ritratto::after{content:"";position:absolute;inset:11px;border:1px solid rgba(162,137,92,.35);
-  pointer-events:none}
-.ritratto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.ritratto b{display:block;font-family:var(--g);font-size:clamp(1.5rem,2.3vw,2rem);
-  color:var(--oro);line-height:1.15}
-.ritratto i{display:block;font-style:normal;font-family:var(--ui);font-size:11px;font-weight:700;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--testo-2);margin-top:14px;line-height:1.9}
-.ritratto small{position:absolute;left:0;right:0;bottom:16px;font-family:var(--ui);
-  font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6E5B3A}
-.firma{font-family:var(--g);font-style:italic;font-size:1.7rem;color:var(--oro);margin:24px 0 0}
+.ritratto{position:relative;margin:0;aspect-ratio:4/5;overflow:hidden;
+  background:var(--bianco);border:1px solid var(--filo-2);padding:9px}
+.ritratto img{width:100%;height:100%;object-fit:cover;object-position:52% 30%}
 
 /* ------------------------------------------------------------ esperienza - */
 /* Narrative on the left sells the outcome; the card on the right carries the
    commercial ask. The previous three-column version read as a spec sheet. */
-.esp{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(34px,4.4vw,76px);align-items:center}
-@media(max-width:940px){.esp{grid-template-columns:1fr;gap:36px}}
+.esp{display:grid;grid-template-columns:.72fr 1fr .92fr;gap:clamp(28px,3.2vw,54px);align-items:center}
+@media(max-width:1080px){.esp{grid-template-columns:1fr 1fr;gap:34px}.esp__f{grid-column:1/-1;max-width:460px}}
+@media(max-width:760px){.esp{grid-template-columns:1fr}.esp__f{max-width:none}}
+.esp__f{margin:0;border:1px solid var(--filo-2);background:var(--bianco);padding:9px}
+.esp__f img{width:100%;aspect-ratio:3/2;object-fit:cover}
 .offerta{background:var(--bianco);border:1px solid var(--filo-2);
   box-shadow:0 26px 60px -44px rgba(59,52,42,.45);padding:clamp(28px,3.2vw,46px)}
 .offerta .prezzo{margin:0 0 6px;align-items:baseline}
@@ -346,16 +339,40 @@ p{margin:0 0 1em;text-wrap:pretty}
 .mappa iframe{width:100%;height:100%;border:0;filter:grayscale(1) sepia(.13) contrast(1.03);
   transition:filter .6s var(--e)}
 .mappa:hover iframe{filter:none}
-.mappa__gate{position:absolute;inset:0;width:100%;border:0;background:var(--sabbia);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
-  font-family:var(--ui);color:var(--testo-2);text-align:center;padding:24px;
-  transition:background .3s var(--e)}
-.mappa__gate:hover{background:var(--azzurro-pallido)}
-.mappa__gate svg{width:30px;height:30px;color:var(--oro-chiaro)}
-.mappa__gate b{font-size:12.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--testo)}
-.mappa__gate span{font-size:12.5px;max-width:30ch;line-height:1.5}
 @media(max-width:900px){.mappa{aspect-ratio:4/3}}
+
+/* ---------------------------------------------------------- cookie ------- */
+.cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;display:none;
+  gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+  background:var(--bianco);border:1px solid var(--filo);border-radius:4px;
+  box-shadow:0 22px 60px -30px rgba(59,52,42,.45);padding:20px 24px;
+  max-width:var(--max);margin-inline:auto}
+.cookie.su{display:flex}
+.cookie b{display:block;font-family:var(--ui);font-size:11px;font-weight:700;
+  letter-spacing:.17em;text-transform:uppercase;color:var(--testo);margin-bottom:7px}
+.cookie p{margin:0;font-family:var(--ui);font-size:13.5px;line-height:1.6;
+  color:var(--testo-2);max-width:66ch}
+.cookie p a{border-bottom:1px solid var(--boutique)}
+.cookie__btn{display:flex;gap:10px;flex:none}
+.cookie .btn{padding:13px 22px;min-height:46px;font-size:11.5px}
+@media(max-width:760px){
+  .cookie{flex-direction:column;align-items:stretch;gap:14px;padding:18px;
+    left:10px;right:10px;bottom:calc(84px + env(safe-area-inset-bottom))}
+  .cookie__btn{flex-direction:column}
+  .cookie .btn{width:100%}
+}
+
+/* -------------------------------------------------------- stelle Google -- */
+.stelle{display:flex;align-items:center;gap:12px;margin:0 0 6px;flex-wrap:wrap}
+.stelle__s{display:flex;gap:2px;color:var(--oro)}
+.stelle__s svg{width:17px;height:17px}
+.stelle b{font-family:var(--ui);font-size:15px;font-weight:700;color:var(--testo)}
+.stelle span{font-family:var(--ui);font-size:13.5px;color:var(--testo-2)}
+.lascia{display:inline-flex;align-items:center;gap:8px;margin-top:30px;
+  font-family:var(--ui);font-size:12px;color:var(--testo-2);
+  border-bottom:1px solid var(--filo);padding-bottom:4px;transition:color .3s var(--e)}
+.lascia:hover{color:var(--sub)}
+.lascia svg{width:14px;height:14px}
 
 /* --------------------------------------------------------------- form ---- */
 .scheda{background:var(--bianco);border:1px solid var(--filo-2);
@@ -677,21 +694,21 @@ footer p{margin:0 0 .55em}
             <img src="media/risultati/ris-02.webp" alt="Contorno occhi di una cliente prima e dopo il percorso Face to Face" loading="lazy">
             <div class="etichette"><span>Prima</span><span>Dopo</span></div>
           </div>
-          <figcaption><b>Rughe perioculari</b> · Percorso Face to Face</figcaption>
+          <figcaption><b>Rughe perioculari</b> · Metodo Face to Face</figcaption>
         </figure>
         <figure class="rv">
           <div class="lastra">
             <img src="media/risultati/ris-09.webp" alt="Guancia e contorno occhi di una cliente prima e dopo il percorso Face to Face" loading="lazy">
             <div class="etichette"><span>Prima</span><span>Dopo</span></div>
           </div>
-          <figcaption><b>Grana e luminosità</b> · Percorso Face to Face</figcaption>
+          <figcaption><b>Grana e luminosità</b> · Metodo Face to Face</figcaption>
         </figure>
         <figure class="rv">
           <div class="lastra">
             <img src="media/risultati/ris-10.webp" alt="Zona perioculare di una cliente prima e dopo il percorso Face to Face" loading="lazy">
             <div class="etichette"><span>Prima</span><span>Dopo</span></div>
           </div>
-          <figcaption><b>Tono e compattezza</b> · Percorso Face to Face</figcaption>
+          <figcaption><b>Tono e compattezza</b> · Metodo Face to Face</figcaption>
         </figure>
       </div>
       <p class="mini rv" style="text-align:center;margin:34px 0 0">Fotografie di clienti Blue Rose. I risultati variano da persona a persona.</p>
@@ -704,12 +721,22 @@ footer p{margin:0 0 .55em}
       <div class="rv" style="max-width:40rem">
         <p class="occhio">Recensioni Google</p>
         <h2 class="d2">Le parole delle nostre clienti.</h2>
+        <!-- Rating and count are injected from GOOGLE below and stay hidden
+             until real values are set — a fabricated score is worse than none. -->
+        <div class="stelle" id="stelle" hidden>
+          <span class="stelle__s" id="stelleS" aria-hidden="true"></span>
+          <b id="stelleV"></b><span id="stelleN"></span>
+        </div>
       </div>
       <div class="rec">
         <blockquote class="rv"><q>Premetto che sono una diffidente cronica, ma un giorno fisso un appuntamento da Blue Rose e lì si apre un mondo. Prima cosa ho riscontrato una grandissima gentilezza e professionalità e non da poco: l'onestà!</q><cite>Marcella M.</cite></blockquote>
         <blockquote class="rv"><q>Veronica super professionale e ti personalizza i trattamenti in base alle tue esigenze. Da consigliare e da provare.</q><cite>Aneta L.</cite></blockquote>
         <blockquote class="rv"><q>Trattamenti viso personalizzati, con prodotti di ottima qualità, eseguiti da personale super gentile, attento alle nostre esigenze e soprattutto molto professionale.</q><cite>Paola B.</cite></blockquote>
       </div>
+      <a class="lascia rv" id="lascia" href="#" target="_blank" rel="noopener" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3.5l2.6 5.6 6 .8-4.4 4.2 1.1 6-5.3-3-5.3 3 1.1-6L3.4 9.9l6-.8L12 3.5Z"/></svg>
+        Lascia una recensione su Google
+      </a>
     </div>
   </section>
 
@@ -719,18 +746,14 @@ footer p{margin:0 0 .55em}
       <!-- The frame is the same 4:5 the photograph will occupy: when it arrives
            it replaces the inner block and nothing else moves. -->
       <figure class="ritratto rv">
-        <div>
-          <b>Veronica<br>Rosso</b>
-          <i>Estetista<br>In estetica dal 2015<br>Blue Rose dal 2021</i>
-        </div>
-        <small>Ritratto in arrivo</small>
+        <img src="media/veronica.jpg" alt="Veronica Rosso nel suo istituto, Blue Rose Olbia" loading="lazy">
       </figure>
       <div class="rv">
-        <p class="occhio">Chi ti accoglie</p>
-        <h2 class="d2">Una sola persona,<br><em>dall'analisi all'ultima seduta.</em></h2>
-        <p class="lede" style="margin-top:22px">Ci sono clienti che arrivano qui dopo aver provato tutto, convinte che la loro pelle non possa più cambiare. Il mio lavoro comincia esattamente lì: guardare quella pelle davvero, capire di cosa ha bisogno e costruire un percorso che si veda allo specchio.</p>
-        <p class="lede">Non troverai protocolli uguali per tutte, né promesse che non posso mantenere. Troverai una persona sola che ti segue dal primo appuntamento in poi e che, quando serve un medico, te lo dice.</p>
-        <p class="firma">Veronica</p>
+        <p class="occhio">Blue Rose</p>
+        <h2 class="d2">Veronica Rosso,<br><em>specializzata nel viso.</em></h2>
+        <p class="lede" style="margin-top:22px">Mi sono specializzata nei trattamenti viso perché la pelle non risponde ai protocolli standard. Ogni viso ha una storia diversa e richiede scelte diverse.</p>
+        <p class="lede">Per questo da Blue Rose si parte sempre dall'analisi: prima capiamo con che pelle stiamo lavorando, poi decidiamo come intervenire. E se un risultato non è raggiungibile, te lo diciamo prima.</p>
+        <p class="mini" style="margin-top:20px">Nel settore dell'estetica dal 2015. Blue Rose dal 2021.</p>
       </div>
     </div>
   </section>
@@ -738,11 +761,14 @@ footer p{margin:0 0 .55em}
   <!-- ================================================= ESPERIENZA ======= -->
   <section class="sec sabbia" id="esperienza">
     <div class="wrap esp">
+      <figure class="esp__f rv">
+        <img src="media/istituto.jpg" alt="L'istituto Blue Rose in via Roma 242, Olbia" loading="lazy">
+      </figure>
       <div class="rv">
-        <p class="occhio">La prima esperienza</p>
-        <h2 class="d2">Il primo passo<br><em>è vedere.</em></h2>
-        <p class="lede" style="margin-top:22px">Smetti di indovinare che cosa serve alla tua pelle. In un solo appuntamento la vedi ingrandita sullo schermo, capisci che cosa la sta segnando e ricevi un piano costruito su quello che hai visto — non su un listino.</p>
-        <p class="lede">Se decidi di proseguire, i 59 € vengono scalati dal totale del Percorso. Il preventivo te lo diamo in istituto, dopo l'analisi, e non prendi nessun impegno.</p>
+        <p class="occhio">Il primo appuntamento</p>
+        <h2 class="d2">Prima di decidere,<br><em>guardiamo la tua pelle.</em></h2>
+        <p class="lede" style="margin-top:22px">La microcamera mostra la tua pelle ingrandita sullo schermo: grana, porosità, uniformità del colorito. Guardi con noi, zona per zona, e capisci con che pelle stiamo lavorando.</p>
+        <p class="lede">Nello stesso appuntamento ricevi il trattamento viso, scelto su quello che l'analisi ha mostrato. Esci sapendo esattamente di cosa ha bisogno il tuo viso.</p>
       </div>
       <div class="offerta rv">
         <p class="occhio solo" style="margin-bottom:10px">Esperienza Face to Face</p>
@@ -757,13 +783,9 @@ footer p{margin:0 0 .55em}
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Valutazione personalizzata del viso</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Protocollo Face to Face dedicato</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Piano di trattamento personalizzato</li>
-            <!-- "circa 90 minuti" is Blue Rose's own published figure, taken
-                 from bluerosedermoestetica.it — not an estimate. -->
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Circa 90 minuti in istituto</li>
           </ul>
         </div>
         <div class="azioni"><a class="btn btn--large" href="#prenota">Prenota ora</a></div>
-        <p class="rassicura">Su appuntamento, una cliente alla volta.<br>Sposti o disdici fino a 24 ore prima.</p>
       </div>
     </div>
   </section>
@@ -789,14 +811,12 @@ footer p{margin:0 0 .55em}
           <a class="btn btn--vuoto" href="https://maps.google.com/?q=Via+Roma+242,+07026+Olbia+SS" target="_blank" rel="noopener">Apri in Google Maps</a>
         </div>
       </div>
-      <!-- Consent-friendly: the Google embed only loads when the visitor asks
-           for it, so the page sets no third-party cookies on first paint. -->
+      <!-- Always visible. Google Maps sets third-party cookies, so the consent
+           banner below is what covers it, not a click gate. -->
       <div class="mappa rv" id="mappa">
-        <button class="mappa__gate" type="button" id="mappaGate">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M12 21s-7-4.6-7-9.6A4.4 4.4 0 0 1 12 8a4.4 4.4 0 0 1 7 3.4c0 5-7 9.6-7 9.6Z"/><circle cx="12" cy="11.4" r="2.1"/></svg>
-          <b>Mostra la mappa</b>
-          <span>Caricando la mappa accetti i cookie di Google Maps</span>
-        </button>
+        <iframe title="Blue Rose, via Roma 242, Olbia" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=Via%20Roma%20242%2C%2007026%20Olbia%20SS%2C%20Italia&z=15&output=embed"></iframe>
       </div>
     </div>
   </section>
@@ -848,16 +868,13 @@ footer p{margin:0 0 .55em}
             <!-- TODO go-live: the privacy policy does not exist yet. This link
                  must point at a real GDPR notice before any data is collected. -->
             <label class="consenso"><input type="checkbox" id="privacy">
-              <span>Accetto l'<a href="#" target="_blank" rel="noopener">informativa sulla privacy</a></span></label>
+              <span>Accetto l'<a href="https://app.legalblink.it/api/documents/6981fed89759e00029b1bcd1/privacy-policy-per-siti-web-o-e-commerce-it" target="_blank" rel="noopener">informativa sulla privacy</a></span></label>
           </div>
         </form>
 
         <p class="ricap" id="ricap">Scegli il giorno e l'orario per proseguire.</p>
         <a class="btn btn--large" id="invia" href="https://wa.me/393282451396" target="_blank" rel="noopener">Prenota il tuo Face to Face — 59&thinsp;€</a>
 
-        <!-- Becomes the refund rule when prepayment goes live: "rimborsabile
-             fino a 24 ore prima". [DA CONFERMARE con Veronica] -->
-        <p class="rassicura" style="margin-top:22px">Sposti o disdici fino a 24 ore prima.</p>
       </div>
     </div>
   </section>
@@ -909,6 +926,20 @@ footer p{margin:0 0 .55em}
   <a class="btn btn--large" href="#prenota">Prenota — 59&thinsp;€</a>
 </div>
 
+<!-- Shown on first load because the page embeds Google Maps, which sets
+     third-party cookies. The choice is remembered in localStorage; no
+     tracking or profiling cookies are set by this site itself. -->
+<div class="cookie" id="cookie" role="dialog" aria-live="polite" aria-label="Cookie">
+  <div>
+    <b>Cookie</b>
+    <p>Questo sito usa solo cookie tecnici. La mappa è fornita da Google Maps, che può impostare cookie propri. <a href="https://app.legalblink.it/api/documents/6981fed89759e00029b1bcd1/privacy-policy-per-siti-web-o-e-commerce-it" target="_blank" rel="noopener">Informativa privacy</a> · <a href="https://bluerosedermoestetica.it/cookie-policy-blue-rose" target="_blank" rel="noopener">Cookie policy</a>.</p>
+  </div>
+  <div class="cookie__btn">
+    <button class="btn" type="button" id="cookieOk">Accetto</button>
+    <button class="btn btn--vuoto" type="button" id="cookieNo">Solo tecnici</button>
+  </div>
+</div>
+
 <script>
 (function(){
   "use strict";
@@ -918,7 +949,15 @@ footer p{margin:0 0 .55em}
           'settembre','ottobre','novembre','dicembre'];
   var ORE=['09:00','09:45','10:30','11:15','12:00','12:45','14:00','14:45','15:30','16:15','17:00','17:45'];
   var CHIUSI=[0,1];                 /* closed Sunday and Monday */
+  var SOLO_MATTINA=[6];             /* Saturday: mornings only */
+  var LIMITE_MATTINA='13:00';
   var PAUSA=['12:00','14:45'];      /* slots shown unavailable */
+
+  /* ---- Google reviews ------------------------------------------------- */
+  /* Fill these in and the rating, count and review button appear. Left empty
+     on purpose: a made-up score is worse than no score. Pulling them live
+     needs a Google Places API key and a billing account — see the handover. */
+  var GOOGLE = { rating:null, count:null, placeUrl:null, reviewUrl:null };
 
   /* ---- header + sticky bar ------------------------------------------- */
   var top=document.getElementById('top'), barra=document.getElementById('barra'),
@@ -940,19 +979,36 @@ footer p{margin:0 0 .55em}
   });
   menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',chiudi); });
 
-  /* ---- map, loaded on request ----------------------------------------- */
-  /* The Google embed sets third-party cookies, so it is not loaded until the
-     visitor asks for it. Keeps the page cookie-free on first paint. */
-  var gate=document.getElementById('mappaGate');
-  if(gate){
-    gate.addEventListener('click',function(){
-      var f=document.createElement('iframe');
-      f.title='Blue Rose, via Roma 242, Olbia';
-      f.loading='lazy'; f.referrerPolicy='no-referrer-when-downgrade';
-      f.src='https://maps.google.com/maps?q=Via%20Roma%20242%2C%2007026%20Olbia%20SS%2C%20Italia&z=15&output=embed';
-      document.getElementById('mappa').appendChild(f);
-      gate.remove();
-    });
+  /* ---- cookie consent -------------------------------------------------- */
+  var ck=document.getElementById('cookie');
+  try{
+    if(!localStorage.getItem('br-cookie')) ck.classList.add('su');
+  }catch(e){ ck.classList.add('su'); }   /* private mode: show it anyway */
+  function chiudiCk(v){
+    try{ localStorage.setItem('br-cookie',v); }catch(e){}
+    ck.classList.remove('su');
+  }
+  document.getElementById('cookieOk').addEventListener('click',function(){ chiudiCk('all'); });
+  document.getElementById('cookieNo').addEventListener('click',function(){ chiudiCk('tech'); });
+
+  /* ---- Google rating, only if real values exist ------------------------ */
+  if(GOOGLE.rating && GOOGLE.count){
+    var box=document.getElementById('stelle');
+    var s='';
+    for(var i=1;i<=5;i++){
+      var full = GOOGLE.rating >= i - 0.25;
+      s += '<svg viewBox="0 0 24 24" fill="'+(full?'currentColor':'none')+'" '
+         + 'stroke="currentColor" stroke-width="1.4"><path d="M12 3.5l2.6 5.6 6 .8-4.4 4.2 '
+         + '1.1 6-5.3-3-5.3 3 1.1-6L3.4 9.9l6-.8L12 3.5Z"/></svg>';
+    }
+    document.getElementById('stelleS').innerHTML=s;
+    document.getElementById('stelleV').textContent=GOOGLE.rating.toFixed(1).replace('.',',');
+    document.getElementById('stelleN').textContent='· '+GOOGLE.count+' recensioni su Google';
+    box.hidden=false;
+  }
+  if(GOOGLE.reviewUrl){
+    var la=document.getElementById('lascia');
+    la.href=GOOGLE.reviewUrl; la.hidden=false;
   }
 
   /* ---- calendar ------------------------------------------------------- */
@@ -1000,7 +1056,7 @@ footer p{margin:0 0 .55em}
         b.setAttribute('aria-pressed', stessoGiorno(data,scelto)?'true':'false');
         b.dataset.iso=data.toISOString().slice(0,10);
         b.dataset.testo=GG[data.getDay()]+' '+d+' '+MM[data.getMonth()];
-        (function(dt){ b.addEventListener('click',function(){ scelto=dt; disegna(); agg(); }); })(data);
+        (function(dt){ b.addEventListener('click',function(){ scelto=dt; disegna(); disegnaOre(); agg(); }); })(data);
       }
       grid.appendChild(b);
     }
@@ -1010,21 +1066,33 @@ footer p{margin:0 0 .55em}
   prev.addEventListener('click',function(){ vista.setMonth(vista.getMonth()-1); disegna(); });
   next.addEventListener('click',function(){ vista.setMonth(vista.getMonth()+1); disegna(); });
 
-  ORE.forEach(function(t){
-    var b=document.createElement('button');
-    b.type='button'; b.textContent=t;
-    if(PAUSA.indexOf(t)>=0){ b.disabled=true; }
-    else{
-      b.setAttribute('aria-pressed','false');
-      b.addEventListener('click',function(){
-        oreBox.querySelectorAll('button').forEach(function(x){
-          if(!x.disabled) x.setAttribute('aria-pressed','false');
+  /* Slots depend on the chosen day: Saturday is mornings only, so afternoon
+     buttons are disabled rather than hidden — she can see the shape of the
+     week instead of wondering why times vanished. */
+  function disegnaOre(){
+    var mattinaSolo = scelto && SOLO_MATTINA.indexOf(scelto.getDay())>=0;
+    oreBox.innerHTML='';
+    ORE.forEach(function(t){
+      var b=document.createElement('button');
+      b.type='button'; b.textContent=t;
+      var fuori = mattinaSolo && t >= LIMITE_MATTINA;
+      if(PAUSA.indexOf(t)>=0 || fuori){
+        b.disabled=true;
+        if(fuori) b.title='Il sabato siamo aperti solo la mattina';
+      } else {
+        b.setAttribute('aria-pressed', (ora===t)?'true':'false');
+        b.addEventListener('click',function(){
+          oreBox.querySelectorAll('button').forEach(function(x){
+            if(!x.disabled) x.setAttribute('aria-pressed','false');
+          });
+          b.setAttribute('aria-pressed','true'); ora=t; agg();
         });
-        b.setAttribute('aria-pressed','true'); ora=t; agg();
-      });
-    }
-    oreBox.appendChild(b);
-  });
+      }
+      oreBox.appendChild(b);
+    });
+    /* a slot chosen before switching to Saturday may no longer be valid */
+    if(mattinaSolo && ora && ora >= LIMITE_MATTINA) ora=null;
+  }
 
   /* ---- compose the WhatsApp handoff ----------------------------------- */
   /* No backend exists, so nothing is stored server-side: the fields are folded
@@ -1054,7 +1122,7 @@ footer p{margin:0 0 .55em}
     document.getElementById(id).addEventListener('input',agg);
   });
 
-  disegna(); agg();
+  disegna(); disegnaOre(); agg();
 })();
 </script>
 </body>
