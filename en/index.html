@@ -315,7 +315,7 @@ p{margin:0 0 1em;text-wrap:pretty}
 @media(max-width:1080px){.esp{grid-template-columns:1fr 1fr;gap:34px}.esp__f{grid-column:1/-1;max-width:460px}}
 @media(max-width:760px){.esp{grid-template-columns:1fr}.esp__f{max-width:none}}
 .esp__f{margin:0;border:1px solid var(--filo-2);background:var(--bianco);padding:9px}
-.esp__f img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.esp__f img{width:100%;aspect-ratio:1/1;object-fit:cover}
 .offerta{background:var(--bianco);border:1px solid var(--filo-2);
   box-shadow:0 26px 60px -44px rgba(59,52,42,.45);padding:clamp(28px,3.2vw,46px)}
 .offerta .prezzo{margin:0 0 6px;align-items:baseline}
@@ -754,9 +754,9 @@ footer p{margin:0 0 .55em}
       <div class="rv">
         <p class="occhio">Blue Rose</p>
         <h2 class="d2">Veronica Rosso,<br><em>a facial specialist.</em></h2>
-        <p class="lede" style="margin-top:22px">I specialised in facial treatments because skin does not respond to standard protocols. Every face has a different history and calls for different choices.</p>
-        <p class="lede">That is why at Blue Rose we always begin with the analysis: first we understand the skin we are working with, then we decide how to treat it. And if a result is not achievable, we tell you beforehand.</p>
-        <p class="mini" style="margin-top:20px">In aesthetics since 2015. Blue Rose since 2021.</p>
+        <p class="lede" style="margin-top:22px">Since 2015 I have worked on faces only. In all those years I have never seen two skins alike — which is why at Blue Rose no two treatments are alike either.</p>
+        <p class="lede">Your skin is read with the camera before it is treated. So you know where you are starting from, and you see the change with your own eyes.</p>
+        <p class="mini" style="margin-top:20px">Blue Rose, via Roma 242, Olbia — since 2021.</p>
       </div>
     </div>
   </section>
@@ -765,13 +765,13 @@ footer p{margin:0 0 .55em}
   <section class="sec sabbia" id="esperienza">
     <div class="wrap esp">
       <figure class="esp__f rv">
-        <img src="../media/istituto.jpg" alt="The Blue Rose studio at via Roma 242, Olbia" loading="lazy">
+        <img src="../media/offerta-card.jpg" alt="Face to Face Method — the first Blue Rose experience, 59 euro" loading="lazy">
       </figure>
       <div class="rv">
-        <p class="occhio">The first appointment</p>
-        <h2 class="d2">Before deciding,<br><em>we look at your skin.</em></h2>
-        <p class="lede" style="margin-top:22px">The camera shows your skin magnified on the screen: texture, pores, evenness of tone. You look through it with us, area by area, and you understand the skin we are working with.</p>
-        <p class="lede">In the same appointment you have the facial treatment, chosen on what the analysis showed. You leave knowing exactly what your face needs.</p>
+        <p class="occhio">The first Blue Rose experience</p>
+        <h2 class="d2">See the true condition<br><em>of your skin.</em></h2>
+        <p class="lede" style="margin-top:22px">The camera shows it as you have never seen it: magnified, area by area, with nothing left to interpretation. What it reveals shapes the treatment, made to measure, in the same appointment.</p>
+        <p class="lede">One appointment to stop guessing, and finally know where to begin. New clients only.</p>
       </div>
       <div class="offerta rv">
         <p class="occhio solo" style="margin-bottom:10px">The Face to Face Experience</p>
@@ -953,7 +953,7 @@ footer p{margin:0 0 .55em}
   var CHIUSI=[0,1];                 /* closed Sunday and Monday */
   var SOLO_MATTINA=[6];             /* Saturday: mornings only */
   var LIMITE_MATTINA='13:00';
-  var PAUSA=['12:00','14:45'];      /* slots shown unavailable */
+  var PAUSA=[];   /* no invented gaps — real availability is confirmed by Veronica */
 
   /* ---- Google reviews ------------------------------------------------- */
   /* Fill these in and the rating, count and review button appear. Left empty

@@ -315,7 +315,7 @@ p{margin:0 0 1em;text-wrap:pretty}
 @media(max-width:1080px){.esp{grid-template-columns:1fr 1fr;gap:34px}.esp__f{grid-column:1/-1;max-width:460px}}
 @media(max-width:760px){.esp{grid-template-columns:1fr}.esp__f{max-width:none}}
 .esp__f{margin:0;border:1px solid var(--filo-2);background:var(--bianco);padding:9px}
-.esp__f img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.esp__f img{width:100%;aspect-ratio:1/1;object-fit:cover}
 .offerta{background:var(--bianco);border:1px solid var(--filo-2);
   box-shadow:0 26px 60px -44px rgba(59,52,42,.45);padding:clamp(28px,3.2vw,46px)}
 .offerta .prezzo{margin:0 0 6px;align-items:baseline}
@@ -754,9 +754,9 @@ footer p{margin:0 0 .55em}
       <div class="rv">
         <p class="occhio">Blue Rose</p>
         <h2 class="d2">Veronica Rosso,<br><em>specializzata nel viso.</em></h2>
-        <p class="lede" style="margin-top:22px">Mi sono specializzata nei trattamenti viso perché la pelle non risponde ai protocolli standard. Ogni viso ha una storia diversa e richiede scelte diverse.</p>
-        <p class="lede">Per questo da Blue Rose si parte sempre dall'analisi: prima capiamo con che pelle stiamo lavorando, poi decidiamo come intervenire. E se un risultato non è raggiungibile, te lo diciamo prima.</p>
-        <p class="mini" style="margin-top:20px">Nel settore dell'estetica dal 2015. Blue Rose dal 2021.</p>
+        <p class="lede" style="margin-top:22px">Dal 2015 mi occupo esclusivamente di viso. In tutti questi anni non ho mai visto due pelli uguali: ed è per questo che da Blue Rose non esistono trattamenti uguali.</p>
+        <p class="lede">La tua pelle viene letta con la microcamera prima di essere trattata. Così sai da dove parti, e vedi con i tuoi occhi che cosa cambia.</p>
+        <p class="mini" style="margin-top:20px">Blue Rose, via Roma 242, Olbia — dal 2021.</p>
       </div>
     </div>
   </section>
@@ -765,13 +765,13 @@ footer p{margin:0 0 .55em}
   <section class="sec sabbia" id="esperienza">
     <div class="wrap esp">
       <figure class="esp__f rv">
-        <img src="media/istituto.jpg" alt="L'istituto Blue Rose in via Roma 242, Olbia" loading="lazy">
+        <img src="media/offerta-card.jpg" alt="Metodo Face to Face — la prima esperienza Blue Rose, 59 euro" loading="lazy">
       </figure>
       <div class="rv">
-        <p class="occhio">Il primo appuntamento</p>
-        <h2 class="d2">Prima di decidere,<br><em>guardiamo la tua pelle.</em></h2>
-        <p class="lede" style="margin-top:22px">La microcamera mostra la tua pelle ingrandita sullo schermo: grana, porosità, uniformità del colorito. Guardi con noi, zona per zona, e capisci con che pelle stiamo lavorando.</p>
-        <p class="lede">Nello stesso appuntamento ricevi il trattamento viso, scelto su quello che l'analisi ha mostrato. Esci sapendo esattamente di cosa ha bisogno il tuo viso.</p>
+        <p class="occhio">La prima esperienza Blue Rose</p>
+        <h2 class="d2">Scopri il vero stato<br><em>della tua pelle.</em></h2>
+        <p class="lede" style="margin-top:22px">La microcamera te la mostra come non l'hai mai vista: ingrandita, zona per zona, senza interpretazioni. Da quello che rivela nasce il trattamento, su misura, nello stesso appuntamento.</p>
+        <p class="lede">Un appuntamento per smettere di indovinare, e sapere finalmente da dove partire. Solo per nuove clienti.</p>
       </div>
       <div class="offerta rv">
         <p class="occhio solo" style="margin-bottom:10px">Esperienza Face to Face</p>
@@ -954,7 +954,7 @@ footer p{margin:0 0 .55em}
   var CHIUSI=[0,1];                 /* closed Sunday and Monday */
   var SOLO_MATTINA=[6];             /* Saturday: mornings only */
   var LIMITE_MATTINA='13:00';
-  var PAUSA=['12:00','14:45'];      /* slots shown unavailable */
+  var PAUSA=[];   /* no invented gaps — real availability is confirmed by Veronica */
 
   /* ---- Google reviews ------------------------------------------------- */
   /* Fill these in and the rating, count and review button appear. Left empty
