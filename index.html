@@ -294,22 +294,44 @@ p{margin:0 0 1em;text-wrap:pretty}
 .rec cite{font-style:normal;font-family:var(--ui);font-size:11px;font-weight:700;
   letter-spacing:.16em;text-transform:uppercase;color:var(--sub)}
 
+/* -------------------------------------------------------------- veronica - */
+/* The practitioner belongs low in the funnel: at the point of deciding, she
+   wants to know whose hands will be on her face. */
+.vero{display:grid;grid-template-columns:.78fr 1.22fr;gap:clamp(34px,4.6vw,84px);align-items:center}
+@media(max-width:900px){.vero{grid-template-columns:1fr;gap:34px}}
+/* A portrait-shaped hole, made deliberate. The real photograph drops into the
+   same 4:5 frame later with no layout change and no re-approval. */
+.ritratto{position:relative;margin:0;aspect-ratio:4/5;background:var(--bianco);
+  border:1px solid var(--oro-chiaro);display:grid;place-items:center;text-align:center;
+  padding:clamp(22px,3vw,40px);overflow:hidden}
+.ritratto::after{content:"";position:absolute;inset:11px;border:1px solid rgba(162,137,92,.35);
+  pointer-events:none}
+.ritratto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ritratto b{display:block;font-family:var(--g);font-size:clamp(1.5rem,2.3vw,2rem);
+  color:var(--oro);line-height:1.15}
+.ritratto i{display:block;font-style:normal;font-family:var(--ui);font-size:11px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--testo-2);margin-top:14px;line-height:1.9}
+.ritratto small{position:absolute;left:0;right:0;bottom:16px;font-family:var(--ui);
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6E5B3A}
+.firma{font-family:var(--g);font-style:italic;font-size:1.7rem;color:var(--oro);margin:24px 0 0}
+
 /* ------------------------------------------------------------ esperienza - */
-.esp{display:grid;grid-template-columns:.62fr 1fr .9fr;gap:clamp(28px,3.4vw,56px);
-  align-items:center}
-@media(max-width:1080px){.esp{grid-template-columns:1fr 1fr}.esp__f{grid-column:1/-1;max-width:420px}}
-@media(max-width:760px){.esp{grid-template-columns:1fr}}
-.esp__f{margin:0;border:1px solid var(--filo-2);background:var(--bianco);padding:9px}
-.esp__f img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.esp__f figcaption{font-family:var(--ui);font-size:11px;color:var(--testo-2);
-  padding:9px 2px 2px;letter-spacing:.04em}
-.comprende{border-left:1px solid var(--filo);padding-left:clamp(20px,2.4vw,34px)}
-.comprende h3{font-family:var(--ui);font-size:11.5px;font-weight:700;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--testo);margin-bottom:18px}
-.comprende li{display:flex;gap:12px;align-items:flex-start;padding:9px 0;
-  font-family:var(--ui);font-size:14.5px;line-height:1.5;color:var(--testo-2)}
+/* Narrative on the left sells the outcome; the card on the right carries the
+   commercial ask. The previous three-column version read as a spec sheet. */
+.esp{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(34px,4.4vw,76px);align-items:center}
+@media(max-width:940px){.esp{grid-template-columns:1fr;gap:36px}}
+.offerta{background:var(--bianco);border:1px solid var(--filo-2);
+  box-shadow:0 26px 60px -44px rgba(59,52,42,.45);padding:clamp(28px,3.2vw,46px)}
+.offerta .prezzo{margin:0 0 6px;align-items:baseline}
+.offerta .prezzo b{font-size:clamp(3.2rem,5vw,4.2rem)}
+.offerta hr{border:0;height:1px;background:var(--filo-2);margin:24px 0}
+.comprende h3{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--testo-2);margin-bottom:16px}
+.comprende li{display:flex;gap:12px;align-items:flex-start;padding:8px 0;
+  font-family:var(--ui);font-size:14.5px;line-height:1.5;color:var(--testo)}
 .comprende svg{width:15px;height:15px;flex:none;color:var(--oro);margin-top:4px}
-@media(max-width:760px){.comprende{border-left:0;padding-left:0;border-top:1px solid var(--filo);padding-top:24px}}
+.rassicura{font-family:var(--ui);font-size:13px;line-height:1.6;color:var(--testo-2);
+  margin:18px 0 0;text-align:center}
 
 /* ---------------------------------------------------------------- dove --- */
 .dove{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,4vw,70px);align-items:center}
@@ -396,11 +418,6 @@ p{margin:0 0 1em;text-wrap:pretty}
 .ricap{font-family:var(--ui);font-size:13.5px;color:var(--testo-2);
   margin:26px 0 14px;text-align:center;min-height:1.5em}
 .ricap b{color:var(--testo)}
-.garanzie{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 30px;margin-top:22px;
-  padding-top:20px;border-top:1px solid var(--filo-2)}
-.garanzie li{display:flex;align-items:center;gap:9px;font-family:var(--ui);font-size:12px;
-  color:var(--testo-2)}
-.garanzie svg{width:15px;height:15px;color:var(--oro-chiaro);flex:none}
 
 /* -------------------------------------------------------------- footer --- */
 footer{background:var(--blu-scuro);color:rgba(255,255,255,.74);
@@ -457,6 +474,72 @@ footer p{margin:0 0 .55em}
 }
 @media (prefers-reduced-motion:reduce){ .hero__media video{display:none} }
 [id]{scroll-margin-top:96px}
+
+/* ======================================================= MOBILE ==========
+   Most traffic is a phone, so this block is a correction pass driven by
+   measurement, not by eye. Every number below fixes something that failed at
+   390x844: tap targets under 44px, the fixed bar covering the footer, and a
+   calendar squeezed to 37px cells inside nested padding. */
+@media(max-width:860px){
+  /* the fixed CTA bar would otherwise sit on top of the footer */
+  body{padding-bottom:82px}
+  html{-webkit-tap-highlight-color:rgba(94,78,47,.14)}
+
+  /* drawer links were 248x27 — the row is wide but not tall enough to hit */
+  .menu a{display:flex;align-items:center;min-height:46px;width:100%}
+  /* language switch was an 18x18 target */
+  .lingua{gap:4px}
+  .lingua a,.lingua b{display:inline-flex;align-items:center;justify-content:center;
+    min-height:44px;min-width:34px}
+
+  /* standalone text links behave as buttons here, so give them a real target */
+  .piu{min-height:44px;align-items:center}
+  .indirizzo a,footer a{display:inline-flex;align-items:center;min-height:44px}
+  .indirizzo li{padding:2px 0}
+  /* inline in a sentence, so it stays inline — padding lifts it clear of the
+     24px minimum without breaking the line box */
+  .consenso a{display:inline-block;padding-block:7px}
+
+  /* --- booking card: the conversion surface, so it gets the most room --- */
+  .scheda{padding:20px 16px}
+  .cols{gap:30px}
+  /* strip the calendar's own frame on a phone: nested padding was costing
+     ~7px per cell, which is the difference between tappable and not */
+  .cal{border:0;padding:0}
+  .cal__dow{gap:3px}
+  .cal__dow span{font-size:10px;padding:4px 0}
+  .cal__grid{gap:3px}
+  .cal__grid button{aspect-ratio:auto;min-height:46px;font-size:15px;border-radius:4px}
+  .cal__nav{width:44px;height:44px}
+  .cal__nav svg{width:15px;height:15px}
+  .cal__bar strong{font-size:15px}
+  .ore{grid-template-columns:repeat(3,1fr);gap:8px}
+  .ore button{min-height:50px;font-size:15px}
+
+  /* a 17px checkbox gating the form is a real conversion leak */
+  .consenso{gap:14px;align-items:center;margin-top:20px;font-size:13.5px}
+  .consenso input{width:24px;height:24px;margin-top:0}
+  .campo input,.campo textarea{font-size:16px;padding:15px 14px}  /* 16px stops iOS zooming on focus */
+
+  /* --- proportion --- */
+  /* NOT margin-inline:auto — auto margins on a grid item cancel stretch and
+     collapse the figure to its content width (measured 198px instead of 300). */
+  .ritratto{width:min(300px,100%);justify-self:center}
+  .offerta{padding:24px 20px}
+  .offerta .prezzo b{font-size:3.2rem}
+  .vero,.esp{gap:30px}
+  .rassicura{font-size:13.5px}
+  .d2{font-size:clamp(1.6rem,6.4vw,2.1rem)}
+  .sec{padding-block:58px}
+  .ris{gap:26px}
+}
+@media(max-width:420px){
+  /* 7 columns still have to fit: shrink the gap before shrinking the cell */
+  .cal__grid{gap:2px}
+  .cal__grid button{min-height:44px;font-size:14.5px}
+  .ore{gap:7px}
+  .fiducia li{padding:22px 0}
+}
 </style>
 </head>
 <body>
@@ -481,6 +564,7 @@ footer p{margin:0 0 .55em}
       <a href="#metodo">Il Metodo</a>
       <a href="#risultati">Risultati</a>
       <a href="#recensioni">Recensioni</a>
+      <a href="#veronica">Veronica</a>
       <a href="#dove">Dove siamo</a>
       <a href="#prenota">Prenota</a>
     </nav>
@@ -629,31 +713,54 @@ footer p{margin:0 0 .55em}
     </div>
   </section>
 
+  <!-- =================================================== VERONICA ======= -->
+  <section class="sec" id="veronica">
+    <div class="wrap vero">
+      <!-- The frame is the same 4:5 the photograph will occupy: when it arrives
+           it replaces the inner block and nothing else moves. -->
+      <figure class="ritratto rv">
+        <div>
+          <b>Veronica<br>Rosso</b>
+          <i>Estetista<br>In estetica dal 2015<br>Blue Rose dal 2021</i>
+        </div>
+        <small>Ritratto in arrivo</small>
+      </figure>
+      <div class="rv">
+        <p class="occhio">Chi ti accoglie</p>
+        <h2 class="d2">Una sola persona,<br><em>dall'analisi all'ultima seduta.</em></h2>
+        <p class="lede" style="margin-top:22px">Ci sono clienti che arrivano qui dopo aver provato tutto, convinte che la loro pelle non possa più cambiare. Il mio lavoro comincia esattamente lì: guardare quella pelle davvero, capire di cosa ha bisogno e costruire un percorso che si veda allo specchio.</p>
+        <p class="lede">Non troverai protocolli uguali per tutte, né promesse che non posso mantenere. Troverai una persona sola che ti segue dal primo appuntamento in poi e che, quando serve un medico, te lo dice.</p>
+        <p class="firma">Veronica</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ================================================= ESPERIENZA ======= -->
   <section class="sec sabbia" id="esperienza">
     <div class="wrap esp">
-      <figure class="esp__f rv">
-        <img src="media/hero-poster.jpg" alt="Blue Rose, via Roma 242, Olbia" loading="lazy">
-        <figcaption>Interno dell'istituto — foto da inserire</figcaption>
-      </figure>
       <div class="rv">
-        <p class="occhio solo">Esperienza Face to Face</p>
-        <div class="prezzo" style="margin-bottom:18px">
-          <b>59&thinsp;€</b><div><s style="margin-top:0">Valore 150&thinsp;€</s></div>
-        </div>
-        <p class="lede">Se prosegui con il Percorso, i 59 € vengono scalati dal totale. Il preventivo ti viene dato in istituto, dopo l'analisi, e non prendi nessun impegno.</p>
+        <p class="occhio">La prima esperienza</p>
+        <h2 class="d2">Il primo passo<br><em>è vedere.</em></h2>
+        <p class="lede" style="margin-top:22px">Smetti di indovinare che cosa serve alla tua pelle. In un solo appuntamento la vedi ingrandita sullo schermo, capisci che cosa la sta segnando e ricevi un piano costruito su quello che hai visto — non su un listino.</p>
+        <p class="lede">Se decidi di proseguire, i 59 € vengono scalati dal totale del Percorso. Il preventivo te lo diamo in istituto, dopo l'analisi, e non prendi nessun impegno.</p>
       </div>
-      <div class="comprende rv">
-        <h3>Cosa comprende</h3>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Analisi della pelle con microcamera</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Valutazione personalizzata del viso</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Protocollo Face to Face dedicato</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Piano di trattamento personalizzato</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Prima esperienza Blue Rose</li>
-        </ul>
-        <div class="azioni"><a class="btn" href="#prenota">Prenota ora</a></div>
-        <p class="mini" style="margin:16px 0 0">Si riceve su appuntamento, una cliente alla volta.</p>
+      <div class="offerta rv">
+        <p class="occhio solo" style="margin-bottom:10px">Esperienza Face to Face</p>
+        <div class="prezzo">
+          <b>59&thinsp;€</b><div><s style="margin-top:0">anziché 150&thinsp;€</s></div>
+        </div>
+        <hr>
+        <div class="comprende">
+          <h3>Cosa comprende</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Analisi della pelle con microcamera</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Valutazione personalizzata del viso</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Protocollo Face to Face dedicato</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Piano di trattamento personalizzato</li>
+          </ul>
+        </div>
+        <div class="azioni"><a class="btn btn--large" href="#prenota">Prenota ora</a></div>
+        <p class="rassicura">Su appuntamento, una cliente alla volta.<br>Sposti o disdici fino a 24 ore prima.</p>
       </div>
     </div>
   </section>
@@ -745,19 +852,9 @@ footer p{margin:0 0 .55em}
         <p class="ricap" id="ricap">Scegli il giorno e l'orario per proseguire.</p>
         <a class="btn btn--large" id="invia" href="https://wa.me/393282451396" target="_blank" rel="noopener">Prenota il tuo Face to Face — 59&thinsp;€</a>
 
-        <!-- The comp promised "Conferma immediata · Promemoria automatici ·
-             Modifica o annulla quando vuoi". None of that exists: the
-             gestionale's booking module is still deactivated, so there is no
-             automated confirmation and no reminders. These three say what
-             actually happens instead. -->
-        <ul class="garanzie">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3a9 9 0 1 0 4.5 16.8L21 21l-1.3-4.2A9 9 0 0 0 12 3Z"/></svg> La richiesta arriva su WhatsApp</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M8 12.4l2.6 2.6L16 9.6"/></svg> Confermata da Veronica</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10.5h18"/></svg> Nessun pagamento online</li>
-          <!-- Becomes the refund rule when prepayment goes live: "rimborsabile
-               fino a 24 ore prima". [DA CONFERMARE con Veronica] -->
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></svg> Sposti o disdici fino a 24 ore prima</li>
-        </ul>
+        <!-- Becomes the refund rule when prepayment goes live: "rimborsabile
+             fino a 24 ore prima". [DA CONFERMARE con Veronica] -->
+        <p class="rassicura" style="margin-top:22px">Sposti o disdici fino a 24 ore prima.</p>
       </div>
     </div>
   </section>
