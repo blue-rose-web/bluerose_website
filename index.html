@@ -61,6 +61,9 @@
   --z-sticky:20; --z-header:40; --z-bar:50;
 }
 *,*::before,*::after{box-sizing:border-box}
+/* author `display` on a class overrides the UA [hidden] rule — without this
+   the ratings block and review button show even when unset */
+[hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion:no-preference){ html{scroll-behavior:smooth} }
 body{margin:0;background:var(--crema);color:var(--testo);font-family:var(--g);
@@ -957,7 +960,17 @@ footer p{margin:0 0 .55em}
   /* Fill these in and the rating, count and review button appear. Left empty
      on purpose: a made-up score is worse than no score. Pulling them live
      needs a Google Places API key and a billing account — see the handover. */
-  var GOOGLE = { rating:null, count:null, placeUrl:null, reviewUrl:null };
+  var GOOGLE = {
+    rating:null,          /* set the real score and it renders; left null on purpose */
+    count:null,
+    /* CID taken from the Google local-results URL for this business
+       (rldimm=9522041998144617447). Opens the Blue Rose listing, where
+       "write a review" is one tap. For a link that opens the review box
+       directly, Veronica can copy hers from Google Business Profile
+       (Ask for reviews -> https://g.page/r/.../review) and it goes here. */
+    placeUrl:'https://maps.google.com/?cid=9522041998144617447',
+    reviewUrl:'https://maps.google.com/?cid=9522041998144617447'
+  };
 
   /* ---- header + sticky bar ------------------------------------------- */
   var top=document.getElementById('top'), barra=document.getElementById('barra'),
