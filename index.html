@@ -317,7 +317,7 @@ p{margin:0 0 1em;text-wrap:pretty}
 .ris figcaption b{color:var(--testo);font-weight:600}
 
 /* ---------------------------------------------------------- recensioni --- */
-.rec{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(26px,3vw,50px);margin-top:48px}
+.rec{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(28px,3.4vw,56px);margin-top:48px}
 @media(max-width:900px){.rec{grid-template-columns:1fr}}
 .rec blockquote{margin:0;padding-top:24px;border-top:1px solid var(--filo)}
 .rec q{display:block;font-size:1.1rem;line-height:1.6;quotes:"“" "”";margin-bottom:16px}
@@ -366,9 +366,7 @@ p{margin:0 0 1em;text-wrap:pretty}
 .indirizzo a{border-bottom:1px solid var(--filo)}
 .mappa{position:relative;aspect-ratio:16/12;overflow:hidden;background:var(--sabbia);
   border:1px solid var(--filo-2)}
-.mappa iframe{width:100%;height:100%;border:0;filter:grayscale(1) sepia(.13) contrast(1.03);
-  transition:filter .6s var(--e)}
-.mappa:hover iframe{filter:none}
+.mappa iframe{width:100%;height:100%;border:0}
 @media(max-width:900px){.mappa{aspect-ratio:4/3}}
 
 /* ---------------------------------------------------------- cookie ------- */
@@ -647,6 +645,7 @@ footer p{margin:0 0 .55em}
                claims against medical services (D.Lgs 145/2007) as the highest
                risk on this page. Safer variant, same positioning, one edit away:
                <h1 class="d1">La via <em>naturale</em>, senza aghi.</h1> -->
+          <p class="occhio">Dermoestetica avanzata — Olbia</p>
           <h1 class="d1">L'alternativa <em>naturale</em><br>alla medicina estetica.</h1>
           <p class="lede">Il Metodo Face to Face è il protocollo esclusivo Blue Rose pensato per ridare luminosità, tono e freschezza al viso.</p>
           <!-- "SENZA DOLORE" in the comp is an absolute claim about sensation and
@@ -796,9 +795,10 @@ footer p{margin:0 0 .55em}
         </div>
       </div>
       <div class="rec">
-        <blockquote class="rv"><q>Premetto che sono una diffidente cronica, ma un giorno fisso un appuntamento da Blue Rose e lì si apre un mondo. Prima cosa ho riscontrato una grandissima gentilezza e professionalità e non da poco: l'onestà!</q><cite>Marcella M.</cite></blockquote>
-        <blockquote class="rv"><q>Veronica super professionale e ti personalizza i trattamenti in base alle tue esigenze. Da consigliare e da provare.</q><cite>Aneta L.</cite></blockquote>
-        <blockquote class="rv"><q>Trattamenti viso personalizzati, con prodotti di ottima qualità, eseguiti da personale super gentile, attento alle nostre esigenze e soprattutto molto professionale.</q><cite>Paola B.</cite></blockquote>
+        <blockquote class="rv"><q>Premetto che sono una diffidente cronica, ma un giorno fisso un appuntamento da Blue Rose e lì si apre un mondo. Prima cosa ho riscontrato una grandissima gentilezza e professionalità e non da poco: l'onestà! Ho prima fatto una ceretta perfetta e poi lo smalto semipermanente. Così ho deciso di acquistare 10 sedute per eliminare la cellulite. Il risultato voto 10, sono pienamente soddisfatta e consiglio vivamente questo centro estetico avanzato.</q><cite>Marcella Masala</cite></blockquote>
+        <blockquote class="rv"><q>Sono cliente affezionata del centro estetico Blue Rose dalla sua apertura. Oggi io e mia figlia ci siamo regalate un pomeriggio di coccole e relax con trattamenti viso personalizzati, con prodotti di ottima qualità, eseguiti da personale super gentile, attento alle nostre esigenze e soprattutto molto professionale.</q><cite>Paola Burrai</cite></blockquote>
+        <blockquote class="rv"><q>Mi è piaciuta tanto l'accoglienza, l'atmosfera e il trattamento insolito. Veronica super professionale e ti personalizza i trattamenti in base alle tue esigenze. Da consigliare e da provare. Lei e tutto lo staff, come simpatia e professionalità, per me numero 1 di Olbia.</q><cite>Aneta Ladzinska</cite></blockquote>
+        <blockquote class="rv"><q>Un'esperienza davvero rigenerante. Il massaggio è stato eseguito con grande professionalità e attenzione ai dettagli. Ho sentito ogni tensione sciogliersi. Ambiente estremamente pulito, accogliente e rilassante. Complimenti!</q><cite>Alessandro Piras</cite></blockquote>
       </div>
       <a class="lascia rv" id="lascia" href="#" target="_blank" rel="noopener" hidden>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3.5l2.6 5.6 6 .8-4.4 4.2 1.1 6-5.3-3-5.3 3 1.1-6L3.4 9.9l6-.8L12 3.5Z"/></svg>
@@ -842,6 +842,10 @@ footer p{margin:0 0 .55em}
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 3a9 9 0 1 0 4.5 16.8L21 21l-1.3-4.2A9 9 0 0 0 12 3Z"/></svg>
             <a href="https://wa.me/393282451396" target="_blank" rel="noopener">+39 328 245 1396</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9.5 16V8h3a2.6 2.6 0 0 1 0 5.2h-3"/></svg>
+            <span>Parcheggio a pochi passi dall'istituto</span>
           </li>
         </ul>
         <div class="azioni">
@@ -895,13 +899,14 @@ footer p{margin:0 0 .55em}
           <div>
             <p class="passo"><i>3.</i> I tuoi dati</p>
             <div class="campo"><label class="skip" for="nome">Nome e cognome</label>
-              <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Nome e cognome"></div>
+              <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Nome e cognome*" required></div>
             <div class="campo"><label class="skip" for="tel">Telefono</label>
-              <input id="tel" name="tel" type="tel" autocomplete="tel" placeholder="Telefono"></div>
+              <input id="tel" name="tel" type="tel" autocomplete="tel" placeholder="Telefono*" required></div>
             <div class="campo"><label class="skip" for="mail">Email</label>
-              <input id="mail" name="mail" type="email" autocomplete="email" placeholder="Email"></div>
+              <input id="mail" name="mail" type="email" autocomplete="email" placeholder="Email*" required></div>
             <div class="campo"><label class="skip" for="note">Note</label>
-              <textarea id="note" name="note" placeholder="Note (facoltative)"></textarea></div>
+              <textarea id="note" name="note" placeholder="Note (facoltative)"></textarea>
+            <p class="obbl">* Campi obbligatori</p></div>
             <!-- TODO go-live: the privacy policy does not exist yet. This link
                  must point at a real GDPR notice before any data is collected. -->
             <label class="consenso" id="consensoWrap"><input type="checkbox" id="privacy" required>
@@ -1214,15 +1219,26 @@ footer p{margin:0 0 .55em}
   var consensoWrap=document.getElementById('consensoWrap');
   var privacy=document.getElementById('privacy');
 
+  var fNome=document.getElementById('nome'), fTel=document.getElementById('tel'),
+      fMail=document.getElementById('mail');
+  function segna(el,ko){ if(el&&el.setAttribute) el.setAttribute('aria-invalid', ko?'true':'false'); }
   function mancante(){
+    [fNome,fTel,fMail].forEach(function(e){ segna(e,false); });
     if(!scelto) return {msg:'Scegli prima il giorno.', focus:grid.querySelector('button:not(:disabled)')};
     if(!ora)    return {msg:'Scegli l’orario.',        focus:oreBox.querySelector('button:not(:disabled)')};
+    if(!fNome.value.trim()) return {msg:'Inserisci nome e cognome.', focus:fNome, campo:fNome};
+    /* a booking that arrives without a number cannot be confirmed */
+    if(fTel.value.replace(/[^0-9+]/g,'').length < 8)
+      return {msg:'Inserisci un numero di telefono valido.', focus:fTel, campo:fTel};
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(fMail.value.trim()))
+      return {msg:'Inserisci un indirizzo email valido.', focus:fMail, campo:fMail};
     if(!privacy.checked) return {msg:'Per proseguire accetta l’informativa sulla privacy.', focus:privacy, ko:consensoWrap};
     return null;
   }
   function mostraErrore(m){
     errore.textContent=m.msg; errore.hidden=false;
     consensoWrap.classList.toggle('ko', !!m.ko);
+    if(m.campo) segna(m.campo,true);
     if(m.focus){ m.focus.scrollIntoView({block:'center'}); m.focus.focus(); }
   }
   function pulisciErrore(){ errore.hidden=true; consensoWrap.classList.remove('ko'); }
@@ -1265,7 +1281,8 @@ footer p{margin:0 0 .55em}
     invia.href='https://wa.me/'+TEL+'?text='+encodeURIComponent(m);
   }
   ['nome','tel','mail','note'].forEach(function(id){
-    document.getElementById(id).addEventListener('input',agg);
+    var el=document.getElementById(id);
+    el.addEventListener('input',function(){ segna(el,false); if(!errore.hidden) pulisciErrore(); agg(); });
   });
 
   disegna(); disegnaOre(); agg();
