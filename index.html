@@ -333,16 +333,16 @@ p{margin:0 0 1em;text-wrap:pretty}
    same 4:5 frame later with no layout change and no re-approval. */
 .ritratto{position:relative;margin:0;aspect-ratio:4/5;overflow:hidden;
   background:var(--bianco);border:1px solid var(--filo-2);padding:9px}
-.ritratto img{width:100%;height:100%;object-fit:cover;object-position:52% 30%}
+.ritratto img{width:100%;height:100%;object-fit:cover;object-position:50% 34%}
 
 /* ------------------------------------------------------------ esperienza - */
 /* Narrative on the left sells the outcome; the card on the right carries the
    commercial ask. The previous three-column version read as a spec sheet. */
-.esp{display:grid;grid-template-columns:.72fr 1fr .92fr;gap:clamp(28px,3.2vw,54px);align-items:center}
+.esp{display:grid;grid-template-columns:.95fr 1fr .9fr;gap:clamp(26px,3vw,48px);align-items:center}
 @media(max-width:1080px){.esp{grid-template-columns:1fr 1fr;gap:34px}.esp__f{grid-column:1/-1;max-width:460px}}
 @media(max-width:760px){.esp{grid-template-columns:1fr}.esp__f{max-width:none}}
 .esp__f{margin:0;border:1px solid var(--filo-2);background:var(--bianco);padding:9px}
-.esp__f img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 22%}
+.esp__f img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 42%}
 .offerta{background:var(--bianco);border:1px solid var(--filo-2);
   box-shadow:0 26px 60px -44px rgba(59,52,42,.45);padding:clamp(28px,3.2vw,46px)}
 .offerta .prezzo{margin:0 0 6px;align-items:baseline}
