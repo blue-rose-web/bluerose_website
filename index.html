@@ -1038,7 +1038,18 @@ footer p{margin:0 0 .55em}
   var CHIUSI=[0,6];                 /* closed Saturday and Sunday — per the Google listing and the gestionale */
   var SOLO_MATTINA=[];              /* no morning-only days — hours are 09:30–19:30 continuous */
   var LIMITE_MATTINA='13:00';
-  var PAUSA=[];   /* no invented gaps — real availability is confirmed by Veronica */
+  var PAUSA=[];
+  /* same-day bookings need breathing room: slots within the next
+     BUFFER_ORE hours are off, and a day with nothing left greys out */
+  var BUFFER_ORE = 4;
+  function slotDisponibile(giorno, hhmm){
+    var p = hhmm.split(':');
+    var slot = new Date(giorno.getFullYear(), giorno.getMonth(), giorno.getDate(), +p[0], +p[1]);
+    return slot.getTime() >= Date.now() + BUFFER_ORE*3600*1000;
+  }
+  function giornoHaSlot(giorno){
+    return ORE.some(function(t){ return PAUSA.indexOf(t)<0 && slotDisponibile(giorno, t); });
+  }   /* no invented gaps — real availability is confirmed by Veronica */
 
   /* ---- Google reviews ------------------------------------------------- */
   /* Fill these in and the rating, count and review button appear. Left empty
@@ -1141,7 +1152,7 @@ footer p{margin:0 0 .55em}
     var liberi=0;
     for(var d=oggi.getDate(); d<=ultimo; d++){
       var dt=new Date(oggi.getFullYear(), oggi.getMonth(), d);
-      if(CHIUSI.indexOf(dt.getDay())<0) liberi++;
+      if(CHIUSI.indexOf(dt.getDay())<0 && giornoHaSlot(dt)) liberi++;
     }
     if(liberi<3) vista.setMonth(vista.getMonth()+1);
   })();
@@ -1168,7 +1179,8 @@ footer p{margin:0 0 .55em}
       b.type='button'; b.textContent=d;
       var passato = data < oggi;
       var chiuso  = CHIUSI.indexOf(data.getDay())>=0;
-      if(passato||chiuso){ b.disabled=true; }
+      var esaurito = !passato && !chiuso && !giornoHaSlot(data);
+      if(passato||chiuso||esaurito){ b.disabled=true; }
       else {
         b.setAttribute('aria-pressed', stessoGiorno(data,scelto)?'true':'false');
         b.dataset.iso=data.toISOString().slice(0,10);
@@ -1231,7 +1243,9 @@ footer p{margin:0 0 .55em}
       var b=document.createElement('button');
       b.type='button'; b.textContent=t;
       var fuori = mattinaSolo && t >= LIMITE_MATTINA;
-      if(PAUSA.indexOf(t)>=0 || fuori){
+      var troppoVicino = scelto && !slotDisponibile(scelto, t);
+      if(PAUSA.indexOf(t)>=0 || fuori || troppoVicino){
+        if(troppoVicino) b.title='Per oggi questo orario non è più disponibile';
         b.disabled=true;
         if(fuori) b.title='Il sabato siamo aperti solo la mattina';
       } else {
@@ -1247,6 +1261,7 @@ footer p{margin:0 0 .55em}
     });
     /* a slot chosen before switching to Saturday may no longer be valid */
     if(mattinaSolo && ora && ora >= LIMITE_MATTINA) ora=null;
+    if(scelto && ora && !slotDisponibile(scelto, ora)) ora=null;
   }
 
   /* ---- compose the WhatsApp handoff ----------------------------------- */
