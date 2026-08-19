@@ -46,7 +46,7 @@
 <link rel="alternate" hreflang="it" href="./">
 <link rel="alternate" hreflang="en" href="en/">
 <link rel="alternate" hreflang="x-default" href="./">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FAF7F1'/%3E%3Cg fill='none' stroke='%236285A8' stroke-width='1.15'%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(72 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(144 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(216 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(288 16 16)'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="favicon.png">
 
 <link rel="preload" href="fonts/ebg-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/jost-var-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -163,7 +163,7 @@ p{margin:0 0 1em;text-wrap:pretty}
   transition:height .4s var(--e)}
 .top.giu .wrap{height:70px}
 .logo{display:flex;align-items:center;gap:12px}
-.logo svg{width:34px;height:34px;flex:none;color:var(--oro-chiaro)}
+.logo img{width:auto;height:38px;flex:none}
 .logo-t{display:flex;flex-direction:column;line-height:1}
 .logo-t b{font-family:var(--g);font-weight:400;font-size:22px;letter-spacing:.2em;color:var(--blu)}
 /* 9.5px in the tan of the comp measured 2.8:1 — unreadable. Larger, deeper. */
@@ -620,16 +620,7 @@ footer p{margin:0 0 .55em}
 <header class="top" id="top">
   <div class="wrap">
     <a class="logo" href="#hero">
-      <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <g stroke="currentColor" stroke-width="1.1">
-          <ellipse cx="20" cy="18" rx="4.2" ry="10.4"/>
-          <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(72 20 18)"/>
-          <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(144 20 18)"/>
-          <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(216 20 18)"/>
-          <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(288 20 18)"/>
-          <path d="M20 28.5V38" stroke-linecap="round"/>
-        </g>
-      </svg>
+      <img src="media/logo-rosa.png" alt="" width="28" height="38">
       <span class="logo-t"><b>BLUE ROSE</b><span>BEAUTY CLINIC</span></span>
     </a>
     <nav class="menu nav-in" id="menu">
@@ -797,8 +788,8 @@ footer p{margin:0 0 .55em}
         <h2 class="d2">Scopri il vero stato<br><em>della tua pelle.</em></h2>
         <p class="lede" style="margin-top:22px">Ogni percorso comincia da un'analisi con microcamera professionale. La tua pelle appare ingrandita, zona per zona, senza interpretazioni.</p>
         <p class="lede">Il trattamento nasce da ciò che l'analisi mostra ed è definito nello stesso appuntamento.</p>
-        <p class="mini" style="margin-top:18px">Riservato a chi non è ancora stata da noi. I posti sono limitati: ogni analisi è seguita personalmente da Veronica.</p>
-        <p class="mini"><b>La promessa Blue Rose:</b> nessuna vendita forzata. Se il Metodo non fa per te, te lo diciamo.</p>
+        <p class="mini" style="margin-top:18px">Riservato a chi non è ancora stata da noi. Veronica segue personalmente ogni analisi: per questo gli appuntamenti disponibili sono pochi.</p>
+        <p class="mini"><b>La promessa Blue Rose:</b> un parere sincero, sempre. Anche quando significa consigliarti di non proseguire.</p>
       </div>
       <div class="offerta rv">
         <p class="occhio solo" style="margin-bottom:10px">Esperienza Face to Face</p>
@@ -809,7 +800,7 @@ footer p{margin:0 0 .55em}
         <div class="comprende">
           <h3>Cosa comprende</h3>
           <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Analisi della pelle con microcamera <em>— da sola: 79&thinsp;€</em></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Analisi della pelle con microcamera <em>(valore 79&thinsp;€)</em></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Valutazione personalizzata del viso</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Protocollo Face to Face dedicato</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Piano di trattamento personalizzato</li>
@@ -832,7 +823,7 @@ footer p{margin:0 0 .55em}
           <span class="stelle__s" id="stelleS" aria-hidden="true"></span>
           <b id="stelleV"></b><span id="stelleN"></span>
         </div>
-        <p class="gbadge"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.27c0-.85-.08-1.66-.22-2.45H12v4.64h6.45a5.52 5.52 0 0 1-2.39 3.62v3h3.87c2.26-2.09 3.57-5.16 3.57-8.81Z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.93-2.91l-3.87-3a7.24 7.24 0 0 1-10.8-3.8H1.27v3.1A12 12 0 0 0 12 24Z"/><path fill="#FBBC05" d="M5.26 14.28a7.2 7.2 0 0 1 0-4.56v-3.1H1.27a12 12 0 0 0 0 10.76l3.99-3.1Z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.44-3.44A11.98 11.98 0 0 0 1.27 6.62l3.99 3.1A7.17 7.17 0 0 1 12 4.75Z"/></svg> Recensioni pubblicate su Google · <a href="https://maps.google.com/?cid=9522041998144617447" target="_blank" rel="noopener">Leggi tutte</a></p>
+        <p class="gbadge"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.27c0-.85-.08-1.66-.22-2.45H12v4.64h6.45a5.52 5.52 0 0 1-2.39 3.62v3h3.87c2.26-2.09 3.57-5.16 3.57-8.81Z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.93-2.91l-3.87-3a7.24 7.24 0 0 1-10.8-3.8H1.27v3.1A12 12 0 0 0 12 24Z"/><path fill="#FBBC05" d="M5.26 14.28a7.2 7.2 0 0 1 0-4.56v-3.1H1.27a12 12 0 0 0 0 10.76l3.99-3.1Z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.44-3.44A11.98 11.98 0 0 0 1.27 6.62l3.99 3.1A7.17 7.17 0 0 1 12 4.75Z"/></svg> Recensioni pubblicate su Google · <a href="https://maps.google.com/?cid=9522041998144617447" target="_blank" rel="noopener">Leggi tutte le recensioni</a></p>
       </div>
       <div class="rec">
         <blockquote class="rv"><q>Sono cliente affezionata del centro estetico Blue Rose dalla sua apertura. Oggi io e mia figlia ci siamo regalate un pomeriggio di coccole e relax con trattamenti viso personalizzati, con prodotti di ottima qualità, eseguiti da personale super gentile, attento alle nostre esigenze e soprattutto molto professionale.</q><cite data-ini="PB">Paola Burrai</cite></blockquote>
@@ -943,7 +934,7 @@ footer p{margin:0 0 .55em}
             <div class="campo"><label class="skip" for="tel">Telefono</label>
               <input id="tel" name="tel" type="tel" autocomplete="tel" placeholder="Telefono*" required></div>
             <div class="campo"><label class="skip" for="mail">Email</label>
-              <input id="mail" name="mail" type="email" autocomplete="email" placeholder="Email (facoltativa)"></div>
+              <input id="mail" name="mail" type="email" autocomplete="email" placeholder="Email*" required></div>
             <div class="campo"><label class="skip" for="note">Note</label>
               <textarea id="note" name="note" placeholder="Note (facoltative)"></textarea>
             <p class="obbl">* Campi obbligatori</p></div>
@@ -957,7 +948,7 @@ footer p{margin:0 0 .55em}
 
         <p class="ricap" id="ricap" role="status" aria-live="polite" aria-atomic="true">Scegli il giorno e l'orario per proseguire.</p>
         <a class="btn btn--large" id="invia" href="https://wa.me/393282451396" target="_blank" rel="noopener">Inizia il tuo percorso — 59&thinsp;€</a>
-        <p class="mini" style="text-align:center;margin:12px 0 0">La richiesta arriva su WhatsApp al numero diretto di Blue Rose.</p>
+        <p class="mini" style="text-align:center;margin:12px 0 0">La tua richiesta arriva direttamente su WhatsApp all’istituto.</p>
         <span class="errore" id="errore" role="alert" hidden></span>
 
       </div>
@@ -970,16 +961,7 @@ footer p{margin:0 0 .55em}
     <div class="cols4">
       <div>
         <a class="logo" href="#hero">
-          <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
-            <g stroke="currentColor" stroke-width="1.1">
-              <ellipse cx="20" cy="18" rx="4.2" ry="10.4"/>
-              <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(72 20 18)"/>
-              <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(144 20 18)"/>
-              <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(216 20 18)"/>
-              <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(288 20 18)"/>
-              <path d="M20 28.5V38" stroke-linecap="round"/>
-            </g>
-          </svg>
+          <img src="media/logo-rosa-ivory.png" alt="" width="28" height="38">
           <span class="logo-t"><b>BLUE ROSE</b><span>BEAUTY CLINIC</span></span>
         </a>
         <p style="margin-top:18px;max-width:32ch">Centro estetico a Olbia specializzato nel trattamento viso senza aghi, con analisi della pelle a microcamera.</p>
@@ -1271,8 +1253,7 @@ footer p{margin:0 0 .55em}
     /* a booking that arrives without a number cannot be confirmed */
     if(fTel.value.replace(/[^0-9+]/g,'').length < 8)
       return {msg:'Inserisci un numero di telefono valido.', focus:fTel, campo:fTel};
-    /* email is optional — the reply happens on WhatsApp; validate only if given */
-    if(fMail.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(fMail.value.trim()))
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(fMail.value.trim()))
       return {msg:'Inserisci un indirizzo email valido.', focus:fMail, campo:fMail};
     if(!privacy.checked) return {msg:'Per proseguire accetta l’informativa sulla privacy.', focus:privacy, ko:consensoWrap};
     return null;

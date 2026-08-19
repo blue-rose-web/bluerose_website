@@ -46,7 +46,7 @@
 <link rel="alternate" hreflang="it" href="../">
 <link rel="alternate" hreflang="en" href="./">
 <link rel="alternate" hreflang="x-default" href="../">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FAF7F1'/%3E%3Cg fill='none' stroke='%236285A8' stroke-width='1.15'%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(72 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(144 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(216 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(288 16 16)'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="../favicon.png">
 
 <link rel="preload" href="../fonts/ebg-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/jost-var-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -163,7 +163,7 @@ p{margin:0 0 1em;text-wrap:pretty}
   transition:height .4s var(--e)}
 .top.giu .wrap{height:70px}
 .logo{display:flex;align-items:center;gap:12px}
-.logo svg{width:34px;height:34px;flex:none;color:var(--oro-chiaro)}
+.logo img{width:auto;height:38px;flex:none}
 .logo-t{display:flex;flex-direction:column;line-height:1}
 .logo-t b{font-family:var(--g);font-weight:400;font-size:22px;letter-spacing:.2em;color:var(--blu)}
 /* 9.5px in the tan of the comp measured 2.8:1 — unreadable. Larger, deeper. */
@@ -620,16 +620,7 @@ footer p{margin:0 0 .55em}
 <header class="top" id="top">
   <div class="wrap">
     <a class="logo" href="#hero">
-      <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <g stroke="currentColor" stroke-width="1.1">
-          <ellipse cx="20" cy="18" rx="4.2" ry="10.4"/>
-          <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(72 20 18)"/>
-          <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(144 20 18)"/>
-          <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(216 20 18)"/>
-          <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(288 20 18)"/>
-          <path d="M20 28.5V38" stroke-linecap="round"/>
-        </g>
-      </svg>
+      <img src="../media/logo-rosa.png" alt="" width="28" height="38">
       <span class="logo-t"><b>BLUE ROSE</b><span>BEAUTY CLINIC</span></span>
     </a>
     <nav class="menu nav-in" id="menu">
@@ -805,15 +796,15 @@ footer p{margin:0 0 .55em}
         <div class="comprende">
           <h3>What is included</h3>
           <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Skin analysis with a high-definition camera <em>— worth 79&thinsp;€ on its own</em></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Skin analysis with a high-definition camera <em>(worth 79&thinsp;€)</em></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>A personal assessment of your face</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>Your dedicated Face to Face protocol</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>A personalised treatment plan</li>
           </ul>
         </div>
         <div class="azioni"><a class="btn btn--large" href="#prenota">Book now</a></div>
-        <p class="mini" style="margin-top:18px">Reserved for first-time clients. Places are limited: Veronica follows every analysis personally.</p>
-        <p class="mini"><b>The Blue Rose promise:</b> no pushy selling. If the Method is not right for you, we tell you.</p>
+        <p class="mini" style="margin-top:18px">Reserved for first-time clients. Veronica follows every analysis personally, so available appointments are few.</p>
+        <p class="mini"><b>The Blue Rose promise:</b> an honest opinion, always — even when it means advising you not to continue.</p>
       </div>
     </div>
   </section>
@@ -941,7 +932,7 @@ footer p{margin:0 0 .55em}
             <div class="campo"><label class="skip" for="tel">Phone</label>
               <input id="tel" name="tel" type="tel" autocomplete="tel" placeholder="Phone*" required></div>
             <div class="campo"><label class="skip" for="mail">Email</label>
-              <input id="mail" name="mail" type="email" autocomplete="email" placeholder="Email (optional)"></div>
+              <input id="mail" name="mail" type="email" autocomplete="email" placeholder="Email*" required></div>
             <div class="campo"><label class="skip" for="note">Notes</label>
               <textarea id="note" name="note" placeholder="Notes (optional)"></textarea>
             <p class="obbl">* Required fields</p></div>
@@ -955,7 +946,7 @@ footer p{margin:0 0 .55em}
 
         <p class="ricap" id="ricap" role="status" aria-live="polite" aria-atomic="true">Choose a day and a time to continue.</p>
         <a class="btn btn--large" id="invia" href="https://wa.me/393282451396" target="_blank" rel="noopener">Start your journey — 59&thinsp;€</a>
-        <p class="mini" style="text-align:center;margin:12px 0 0">Your request goes straight to Blue Rose on WhatsApp.</p>
+        <p class="mini" style="text-align:center;margin:12px 0 0">Your request goes directly to the institute on WhatsApp.</p>
         <span class="errore" id="errore" role="alert" hidden></span>
 
       </div>
@@ -968,16 +959,7 @@ footer p{margin:0 0 .55em}
     <div class="cols4">
       <div>
         <a class="logo" href="#hero">
-          <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
-            <g stroke="currentColor" stroke-width="1.1">
-              <ellipse cx="20" cy="18" rx="4.2" ry="10.4"/>
-              <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(72 20 18)"/>
-              <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(144 20 18)"/>
-              <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(216 20 18)"/>
-              <ellipse cx="20" cy="18" rx="4.2" ry="10.4" transform="rotate(288 20 18)"/>
-              <path d="M20 28.5V38" stroke-linecap="round"/>
-            </g>
-          </svg>
+          <img src="../media/logo-rosa-ivory.png" alt="" width="28" height="38">
           <span class="logo-t"><b>BLUE ROSE</b><span>BEAUTY CLINIC</span></span>
         </a>
         <p style="margin-top:18px;max-width:32ch">A beauty studio in Olbia specialising in facial treatment without needles, with high-definition skin analysis.</p>
@@ -1269,8 +1251,7 @@ footer p{margin:0 0 .55em}
     /* a booking that arrives without a number cannot be confirmed */
     if(fTel.value.replace(/[^0-9+]/g,'').length < 8)
       return {msg:'Please enter a valid phone number.', focus:fTel, campo:fTel};
-    /* email is optional — the reply happens on WhatsApp; validate only if given */
-    if(fMail.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(fMail.value.trim()))
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(fMail.value.trim()))
       return {msg:'Please enter a valid email address.', focus:fMail, campo:fMail};
     if(!privacy.checked) return {msg:'Please accept the privacy notice to continue.', focus:privacy, ko:consensoWrap};
     return null;
