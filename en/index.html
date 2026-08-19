@@ -1037,7 +1037,22 @@ footer p{margin:0 0 .55em}
   if(WA_DESKTOP){
     document.querySelectorAll('a[href^="https://wa.me/'+TEL+'"]').forEach(function(a){
       a.href='https://web.whatsapp.com/send?phone='+TEL;
-    });
+    });  }
+  /* Android with only WhatsApp Business: the https link force-opens Messenger
+     and dead-ends ("il tuo numero non e registrato"). The whatsapp:// scheme
+     is registered by BOTH apps, so the system opens the right one; if nothing
+     answers within 1.6s we fall back to the normal link. */
+  var WA_ANDROID = /Android/i.test(navigator.userAgent);
+  function apriWhatsApp(){
+    var enc = (invia.href.split('text=')[1]||'');
+    if(WA_ANDROID){
+      location.href = 'whatsapp://send?phone='+TEL+(enc?'&text='+enc:'');
+      setTimeout(function(){
+        if(document.visibilityState==='visible') window.open(invia.href,'_blank','noopener');
+      },1600);
+    } else {
+      window.open(invia.href,'_blank','noopener');
+    }
   }
   var GG=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   var MM=['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto',
@@ -1337,7 +1352,9 @@ footer p{margin:0 0 .55em}
   invia.addEventListener('click',function(e){
     var m=mancante();
     if(m){ e.preventDefault(); mostraErrore(m); return; }
+    e.preventDefault();
     inviaEmailRicevuta();
+    apriWhatsApp();
   });
   /* the hidden submit button makes Enter work from any field */
   document.getElementById('form').addEventListener('submit',function(e){
@@ -1346,7 +1363,7 @@ footer p{margin:0 0 .55em}
     if(m){ mostraErrore(m); return; }
     pulisciErrore();
     inviaEmailRicevuta();
-    window.open(invia.href,'_blank','noopener');
+    apriWhatsApp();
   });
   privacy.addEventListener('change',function(){ if(privacy.checked) pulisciErrore(); agg(); });
 
