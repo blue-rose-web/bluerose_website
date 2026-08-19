@@ -105,8 +105,10 @@ p{margin:0 0 1em;text-wrap:pretty}
 :focus-visible{outline:2px solid var(--blu-scuro);outline-offset:3px;border-radius:2px}
 .skip{position:absolute;left:-9999px;background:var(--blu-scuro);color:#fff;padding:12px 18px;z-index:99}
 .skip:focus{left:10px;top:10px}
+/* visually hidden but focusable — the form's real submit lives here */
+.vh{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
 .wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--pad)}
-.sec{padding-block:clamp(66px,8vw,132px)}
+.sec{padding-block:clamp(56px,6.5vw,104px)}
 .sabbia{background:var(--sabbia)}
 .azzurro{background:var(--azzurro-pallido)}
 
@@ -290,9 +292,9 @@ p{margin:0 0 1em;text-wrap:pretty}
   width:52px;height:52px;margin:0 auto 18px;border-radius:50%;
   background:var(--blu-scuro);color:#fff;
   font-family:var(--g);font-size:1.12rem;font-variant-numeric:lining-nums tabular-nums}
-.passi h3{font-family:var(--ui);font-size:12.5px;font-weight:700;letter-spacing:.06em;
+.passi h3{font-family:var(--ui);font-size:13px;font-weight:700;letter-spacing:.06em;
   line-height:1.4;text-transform:uppercase;color:var(--testo);margin-bottom:10px}
-.passi p{margin:0;font-family:var(--ui);font-size:12.5px;line-height:1.6;color:var(--testo-2)}
+.passi p{margin:0;font-family:var(--ui);font-size:13.5px;line-height:1.65;color:var(--testo-2)}
 @media(max-width:1000px){
   .passi{grid-template-columns:1fr;gap:0}
   .passi::before{top:0;bottom:0;left:26px;right:auto;width:1px;height:auto}
@@ -318,11 +320,36 @@ p{margin:0 0 1em;text-wrap:pretty}
 .ris figcaption b{color:var(--testo);font-weight:600}
 
 /* ---------------------------------------------------------- recensioni --- */
-.rec{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(28px,3.4vw,56px);margin-top:48px}
+.rec{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(24px,2.8vw,40px);margin-top:40px}
+/* Google badge under the reviews heading */
+.gbadge{display:flex;align-items:center;gap:10px;font-family:var(--ui);
+  font-size:13px;color:var(--testo-2);margin:14px 0 0}
+.gbadge svg{width:18px;height:18px;flex:none}
+.gbadge a{border-bottom:1px solid var(--filo);font-weight:700;color:var(--testo)}
+/* reviewer initials chip, from data-ini so nothing is invented */
+.rec cite::before{content:attr(data-ini);display:inline-flex;align-items:center;
+  justify-content:center;width:34px;height:34px;flex:none;border-radius:50%;
+  background:var(--azzurro-pallido);color:var(--blu-scuro);
+  font-size:12px;letter-spacing:.02em}
+/* click-to-load map facade */
+.mappa__velo{position:absolute;inset:0;display:flex;flex-direction:column;gap:14px;
+  align-items:center;justify-content:center;text-align:center;padding:20px;
+  background:var(--sabbia)}
+.mappa__velo p{margin:0;font-family:var(--ui);font-size:13px;color:var(--testo-2);max-width:34ch}
+.mappa.caricata .mappa__velo{display:none}
+/* more before/after photos, collapsed by default */
+.ris-piu{margin-top:34px;text-align:center}
+.ris-piu summary{list-style:none;display:inline-flex;cursor:pointer}
+.ris-piu summary::-webkit-details-marker{display:none}
+.ris-piu[open] summary{display:none}
+.ris-griglia{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+@media(max-width:860px){.ris-griglia{grid-template-columns:1fr 1fr;gap:12px}}
+.ris-griglia img{width:100%;border-radius:4px;border:1px solid var(--filo-2)}
+
 @media(max-width:900px){.rec{grid-template-columns:1fr}}
-.rec blockquote{margin:0;padding-top:24px;border-top:1px solid var(--filo)}
+.rec blockquote{margin:0;background:var(--bianco);border:1px solid var(--filo-2);border-radius:4px;padding:26px 28px 22px;box-shadow:0 10px 30px -24px rgba(59,52,42,.35)}
 .rec q{display:block;font-size:1.1rem;line-height:1.6;quotes:"“" "”";margin-bottom:16px}
-.rec cite{font-style:normal;font-family:var(--ui);font-size:11px;font-weight:700;
+.rec cite{display:flex;align-items:center;gap:12px;font-style:normal;font-family:var(--ui);font-size:11.5px;font-weight:700;
   letter-spacing:.16em;text-transform:uppercase;color:var(--sub)}
 
 /* -------------------------------------------------------------- veronica - */
@@ -746,6 +773,20 @@ footer p{margin:0 0 .55em}
         </figure>
       </div>
       <p class="mini rv" style="text-align:center;margin:34px 0 0">Fotografie di clienti Blue Rose. I risultati variano da persona a persona.</p>
+        <details class="ris-piu rv">
+          <summary class="btn btn--vuoto">Vedi altri risultati</summary>
+          <div class="ris-griglia">
+            <img src="media/risultati/ris-01.webp" alt="Prima e dopo di una cliente Blue Rose" loading="lazy" decoding="async">
+            <img src="media/risultati/ris-03.webp" alt="Prima e dopo di una cliente Blue Rose" loading="lazy" decoding="async">
+            <img src="media/risultati/ris-04.webp" alt="Prima e dopo di una cliente Blue Rose" loading="lazy" decoding="async">
+            <img src="media/risultati/ris-05.webp" alt="Prima e dopo di una cliente Blue Rose" loading="lazy" decoding="async">
+            <img src="media/risultati/ris-06.webp" alt="Prima e dopo di una cliente Blue Rose" loading="lazy" decoding="async">
+            <img src="media/risultati/ris-07.webp" alt="Prima e dopo di una cliente Blue Rose" loading="lazy" decoding="async">
+            <img src="media/risultati/ris-08.webp" alt="Prima e dopo di una cliente Blue Rose" loading="lazy" decoding="async">
+            <img src="media/risultati/ris-11.webp" alt="Prima e dopo di una cliente Blue Rose" loading="lazy" decoding="async">
+            <img src="media/risultati/ris-12.webp" alt="Prima e dopo di una cliente Blue Rose" loading="lazy" decoding="async">
+          </div>
+        </details>
     </div>
   </section>
 
@@ -794,12 +835,13 @@ footer p{margin:0 0 .55em}
           <span class="stelle__s" id="stelleS" aria-hidden="true"></span>
           <b id="stelleV"></b><span id="stelleN"></span>
         </div>
+        <p class="gbadge"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.27c0-.85-.08-1.66-.22-2.45H12v4.64h6.45a5.52 5.52 0 0 1-2.39 3.62v3h3.87c2.26-2.09 3.57-5.16 3.57-8.81Z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.93-2.91l-3.87-3a7.24 7.24 0 0 1-10.8-3.8H1.27v3.1A12 12 0 0 0 12 24Z"/><path fill="#FBBC05" d="M5.26 14.28a7.2 7.2 0 0 1 0-4.56v-3.1H1.27a12 12 0 0 0 0 10.76l3.99-3.1Z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.44-3.44A11.98 11.98 0 0 0 1.27 6.62l3.99 3.1A7.17 7.17 0 0 1 12 4.75Z"/></svg> Recensioni pubblicate su Google · <a href="https://maps.google.com/?cid=9522041998144617447" target="_blank" rel="noopener">Leggi tutte</a></p>
       </div>
       <div class="rec">
-        <blockquote class="rv"><q>Premetto che sono una diffidente cronica, ma un giorno fisso un appuntamento da Blue Rose e lì si apre un mondo. Prima cosa ho riscontrato una grandissima gentilezza e professionalità e non da poco: l'onestà! Ho prima fatto una ceretta perfetta e poi lo smalto semipermanente. Così ho deciso di acquistare 10 sedute per eliminare la cellulite. Il risultato voto 10, sono pienamente soddisfatta e consiglio vivamente questo centro estetico avanzato.</q><cite>Marcella Masala</cite></blockquote>
-        <blockquote class="rv"><q>Sono cliente affezionata del centro estetico Blue Rose dalla sua apertura. Oggi io e mia figlia ci siamo regalate un pomeriggio di coccole e relax con trattamenti viso personalizzati, con prodotti di ottima qualità, eseguiti da personale super gentile, attento alle nostre esigenze e soprattutto molto professionale.</q><cite>Paola Burrai</cite></blockquote>
-        <blockquote class="rv"><q>Mi è piaciuta tanto l'accoglienza, l'atmosfera e il trattamento insolito. Veronica super professionale e ti personalizza i trattamenti in base alle tue esigenze. Da consigliare e da provare. Lei e tutto lo staff, come simpatia e professionalità, per me numero 1 di Olbia.</q><cite>Aneta Ladzinska</cite></blockquote>
-        <blockquote class="rv"><q>Un'esperienza davvero rigenerante. Il massaggio è stato eseguito con grande professionalità e attenzione ai dettagli. Ho sentito ogni tensione sciogliersi. Ambiente estremamente pulito, accogliente e rilassante. Complimenti!</q><cite>Alessandro Piras</cite></blockquote>
+        <blockquote class="rv"><q>Sono cliente affezionata del centro estetico Blue Rose dalla sua apertura. Oggi io e mia figlia ci siamo regalate un pomeriggio di coccole e relax con trattamenti viso personalizzati, con prodotti di ottima qualità, eseguiti da personale super gentile, attento alle nostre esigenze e soprattutto molto professionale.</q><cite data-ini="PB">Paola Burrai</cite></blockquote>
+        <blockquote class="rv"><q>Mi è piaciuta tanto l'accoglienza, l'atmosfera e il trattamento insolito. Veronica super professionale e ti personalizza i trattamenti in base alle tue esigenze. Da consigliare e da provare. Lei e tutto lo staff, come simpatia e professionalità, per me numero 1 di Olbia.</q><cite data-ini="AL">Aneta Ladzinska</cite></blockquote>
+        <blockquote class="rv"><q>Premetto che sono una diffidente cronica, ma un giorno fisso un appuntamento da Blue Rose e lì si apre un mondo. Prima cosa ho riscontrato una grandissima gentilezza e professionalità e non da poco: l'onestà! Ho prima fatto una ceretta perfetta e poi lo smalto semipermanente. Così ho deciso di acquistare 10 sedute per eliminare la cellulite. Il risultato voto 10, sono pienamente soddisfatta e consiglio vivamente questo centro estetico avanzato.</q><cite data-ini="MM">Marcella Masala</cite></blockquote>
+        <blockquote class="rv"><q>Un'esperienza davvero rigenerante. Il massaggio è stato eseguito con grande professionalità e attenzione ai dettagli. Ho sentito ogni tensione sciogliersi. Ambiente estremamente pulito, accogliente e rilassante. Complimenti!</q><cite data-ini="AP">Alessandro Piras</cite></blockquote>
       </div>
       <a class="lascia rv" id="lascia" href="#" target="_blank" rel="noopener" hidden>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3.5l2.6 5.6 6 .8-4.4 4.2 1.1 6-5.3-3-5.3 3 1.1-6L3.4 9.9l6-.8L12 3.5Z"/></svg>
@@ -858,7 +900,11 @@ footer p{margin:0 0 .55em}
       <div class="mappa rv" id="mappa">
         <iframe title="Blue Rose, via Roma 242, Olbia" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          src="https://maps.google.com/maps?q=Via%20Roma%20242%2C%2007026%20Olbia%20SS%2C%20Italia&z=15&output=embed"></iframe>
+          data-src="https://maps.google.com/maps?q=Via%20Roma%20242%2C%2007026%20Olbia%20SS%2C%20Italia&z=15&output=embed"></iframe>
+        <div class="mappa__velo">
+          <p>La mappa interattiva è fornita da Google Maps e viene caricata solo se la apri.</p>
+          <button class="btn btn--vuoto" type="button" id="mappaGo">Carica la mappa</button>
+        </div>
       </div>
     </div>
   </section>
@@ -917,7 +963,7 @@ footer p{margin:0 0 .55em}
         </form>
 
         <p class="ricap" id="ricap" role="status" aria-live="polite" aria-atomic="true">Scegli il giorno e l'orario per proseguire.</p>
-        <a class="btn btn--large" id="invia" href="https://wa.me/393282451396" target="_blank" rel="noopener">Prenota il tuo Face to Face — 59&thinsp;€</a>
+        <a class="btn btn--large" id="invia" href="https://wa.me/393282451396" target="_blank" rel="noopener">Inizia il tuo percorso — 59&thinsp;€</a>
         <span class="errore" id="errore" role="alert" hidden></span>
 
       </div>
@@ -1026,6 +1072,14 @@ footer p{margin:0 0 .55em}
     barra.classList.toggle('su', mostra);
   }
   addEventListener('scroll',onScroll,{passive:true});
+
+  /* ---- map loads only on request (no Google cookies before that) --- */
+  var mgo=document.getElementById('mappaGo');
+  if(mgo){ mgo.addEventListener('click',function(){
+    var f=document.querySelector('.mappa iframe');
+    f.src=f.dataset.src;
+    mgo.closest('.mappa').classList.add('caricata');
+  }); }
 
   /* ---- mobile drawer -------------------------------------------------- */
   var ham=document.getElementById('ham'), menu=document.getElementById('menu');
