@@ -789,6 +789,7 @@ footer p{margin:0 0 .55em}
         <p class="lede" style="margin-top:22px">Ogni percorso comincia da un'analisi con microcamera professionale. La tua pelle appare ingrandita, zona per zona, senza interpretazioni.</p>
         <p class="lede">Il trattamento nasce da ciò che l'analisi rivela, e viene definito insieme, nello stesso appuntamento.</p>
         <p class="mini" style="margin-top:18px">Il prezzo di 59&thinsp;€ è riservato alla prima visita. Chi è già cliente può prenotare la stessa esperienza a 150&thinsp;€. Veronica segue personalmente ogni analisi: per questo gli appuntamenti disponibili sono pochi.</p>
+        <p class="mini"><b>Sei già cliente?</b> Porta un'amica: prenotate insieme e il Face to Face è 59&thinsp;€ a testa anziché 150&thinsp;€.</p>
         <p class="mini"><b>La promessa Blue Rose:</b> un parere sincero, sempre. Anche quando significa consigliarti di non proseguire.</p>
       </div>
       <div class="offerta rv">
@@ -885,6 +886,7 @@ footer p{margin:0 0 .55em}
         </ul>
         <div class="azioni">
           <a class="btn btn--vuoto" href="https://maps.google.com/?q=Via+Roma+242,+07026+Olbia+SS" target="_blank" rel="noopener">Apri in Google Maps</a>
+          <a class="btn btn--vuoto" href="https://maps.apple.com/?q=Via+Roma+242,+07026+Olbia&address=Via+Roma+242,+07026+Olbia" target="_blank" rel="noopener">Apri in Apple Maps</a>
         </div>
       </div>
       <!-- Always visible. Google Maps sets third-party cookies, so the consent
@@ -1270,9 +1272,35 @@ footer p{margin:0 0 .55em}
   }
   function pulisciErrore(){ errore.hidden=true; consensoWrap.classList.remove('ko'); }
 
+  /* Email receipt via FormSubmit: the client gets an automatic "request
+     received" email and the istituto gets a copy. Fire-and-forget — WhatsApp
+     is the primary rail and proceeds even if this fails. Requires one-time
+     activation: the first submission emails an activation link to the inbox. */
+  function inviaEmailRicevuta(){
+    try{
+      fetch('https://formsubmit.co/ajax/infobluerose21@gmail.com',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify({
+          _subject:'Nuova richiesta di appuntamento dal sito',
+          _template:'table',
+          _captcha:'false',
+          _autoresponse:'Grazie! La tua richiesta di appuntamento è arrivata a Blue Rose. Ti risponderemo su WhatsApp per confermare giorno e orario. Blue Rose Beauty Clinic — Via Roma 242, Olbia — +39 328 245 1396',
+          nome:document.getElementById('nome').value.trim(),
+          telefono:document.getElementById('tel').value.trim(),
+          email:document.getElementById('mail').value.trim(),
+          giorno:(scelto? scelto.toLocaleDateString('it-IT') : ''),
+          orario:(ora||''),
+          note:document.getElementById('note').value.trim()
+        })
+      }).catch(function(){});
+    }catch(err){}
+  }
+
   invia.addEventListener('click',function(e){
     var m=mancante();
-    if(m){ e.preventDefault(); mostraErrore(m); }
+    if(m){ e.preventDefault(); mostraErrore(m); return; }
+    inviaEmailRicevuta();
   });
   /* the hidden submit button makes Enter work from any field */
   document.getElementById('form').addEventListener('submit',function(e){
@@ -1280,6 +1308,7 @@ footer p{margin:0 0 .55em}
     var m=mancante();
     if(m){ mostraErrore(m); return; }
     pulisciErrore();
+    inviaEmailRicevuta();
     window.open(invia.href,'_blank','noopener');
   });
   privacy.addEventListener('change',function(){ if(privacy.checked) pulisciErrore(); agg(); });
