@@ -49,10 +49,12 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FAF7F1'/%3E%3Cg fill='none' stroke='%236285A8' stroke-width='1.15'%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(72 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(144 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(216 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='3.5' ry='8.6' transform='rotate(288 16 16)'/%3E%3C/g%3E%3C/svg%3E">
 
 <link rel="preload" href="fonts/ebg-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/jost-var-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face{font-family:'EB Garamond';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ebg-normal-400-latin.woff2) format('woff2')}
 @font-face{font-family:'EB Garamond';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ebg-normal-500-latin.woff2) format('woff2')}
 @font-face{font-family:'EB Garamond';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/ebg-italic-400-latin.woff2) format('woff2')}
+@font-face{font-family:'Jost';font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/jost-var-latin.woff2) format('woff2')}
 
 /* ============================================================== tokens ===
    Palette taken from the approved hero only: cream, the soft blue, and the
@@ -68,8 +70,8 @@
 
   --oro:#82643A;          /* display gold        5.1:1 on cream */
   --oro-chiaro:#A2895C;   /* large accents only  3.4:1 — never below 24px */
-  --bottone:#87714A;      /* CTA fill, white on it 4.7:1 */
-  --bottone-scuro:#5E4E2F;
+  --bottone:#7E6338;      /* CTA fill, white on it 5.6:1 — aligned with --oro */
+  --bottone-scuro:#554327;
   --sub:#533422;          /* small caps         10.4:1 */
 
   /* the hero's #6285A8 gives the 22px wordmark only 3.6:1; deepened a shade
@@ -82,7 +84,7 @@
   --boutique:#A89376;
 
   --g:"EB Garamond",Garamond,Georgia,serif;
-  --ui:ui-sans-serif,-apple-system,"Segoe UI",Roboto,system-ui,sans-serif;
+  --ui:'Jost',ui-sans-serif,-apple-system,"Segoe UI",Roboto,system-ui,sans-serif;
   --max:1360px; --pad:clamp(20px,4.4vw,68px);
   --e:cubic-bezier(.22,1,.36,1);
   --e-soft:cubic-bezier(.16,1,.3,1);
@@ -118,21 +120,21 @@ p{margin:0 0 1em;text-wrap:pretty}
 .d2{font-size:clamp(1.75rem,3.3vw,2.85rem);color:var(--testo)}
 .d2 em{font-style:italic;color:var(--oro)}
 .d3{font-size:1.22rem;color:var(--testo)}
-.occhio{font-family:var(--ui);font-size:12px;font-weight:700;letter-spacing:.2em;
+.occhio{font-family:var(--ui);font-size:12px;font-weight:600;letter-spacing:.2em;
   text-transform:uppercase;color:var(--sub);margin:0 0 20px;display:flex;align-items:center;gap:14px}
 .occhio::after{content:"";flex:0 0 54px;height:1px;background:var(--boutique)}
 .occhio.solo::after{display:none}
 .lede{font-family:var(--ui);font-size:clamp(15px,1.15vw,16.5px);line-height:1.72;
   color:var(--testo-2);max-width:44ch}
 .mini{font-family:var(--ui);font-size:13.5px;color:var(--testo-2)}
-.senza{font-family:var(--ui);font-size:clamp(11.5px,.85vw,12.5px);font-weight:700;
+.senza{font-family:var(--ui);font-size:clamp(11.5px,.85vw,12.5px);font-weight:600;
   letter-spacing:.15em;text-transform:uppercase;color:var(--sub);margin:0}
 
 /* ------------------------------------------------------------- buttons --- */
 .btn{position:relative;overflow:hidden;isolation:isolate;
   display:inline-flex;align-items:center;justify-content:center;text-align:center;gap:10px;
   background:var(--bottone);color:#fff;border:1px solid var(--bottone);border-radius:3px;
-  padding:18px 34px;min-height:56px;font-family:var(--ui);font-size:12.5px;font-weight:700;
+  padding:18px 34px;min-height:56px;font-family:var(--ui);font-size:12.5px;font-weight:600;
   letter-spacing:.16em;text-transform:uppercase;line-height:1.4;
   transition:border-color .5s var(--e),box-shadow .5s var(--e),transform .3s var(--e)}
 /* fill wipes up from the base rather than cross-fading */
@@ -292,7 +294,7 @@ p{margin:0 0 1em;text-wrap:pretty}
   width:52px;height:52px;margin:0 auto 18px;border-radius:50%;
   background:var(--blu-scuro);color:#fff;
   font-family:var(--g);font-size:1.12rem;font-variant-numeric:lining-nums tabular-nums}
-.passi h3{font-family:var(--ui);font-size:13px;font-weight:700;letter-spacing:.06em;
+.passi h3{font-family:var(--ui);font-size:13px;font-weight:600;letter-spacing:.06em;
   line-height:1.4;text-transform:uppercase;color:var(--testo);margin-bottom:10px}
 .passi p{margin:0;font-family:var(--ui);font-size:13.5px;line-height:1.65;color:var(--testo-2)}
 @media(max-width:1000px){
@@ -331,12 +333,6 @@ p{margin:0 0 1em;text-wrap:pretty}
   justify-content:center;width:34px;height:34px;flex:none;border-radius:50%;
   background:var(--azzurro-pallido);color:var(--blu-scuro);
   font-size:12px;letter-spacing:.02em}
-/* click-to-load map facade */
-.mappa__velo{position:absolute;inset:0;display:flex;flex-direction:column;gap:14px;
-  align-items:center;justify-content:center;text-align:center;padding:20px;
-  background:var(--sabbia)}
-.mappa__velo p{margin:0;font-family:var(--ui);font-size:13px;color:var(--testo-2);max-width:34ch}
-.mappa.caricata .mappa__velo{display:none}
 /* more before/after photos, collapsed by default */
 .ris-piu{margin-top:34px;text-align:center}
 .ris-piu summary{list-style:none;display:inline-flex;cursor:pointer}
@@ -349,7 +345,7 @@ p{margin:0 0 1em;text-wrap:pretty}
 @media(max-width:900px){.rec{grid-template-columns:1fr}}
 .rec blockquote{margin:0;background:var(--bianco);border:1px solid var(--filo-2);border-radius:4px;padding:26px 28px 22px;box-shadow:0 10px 30px -24px rgba(59,52,42,.35)}
 .rec q{display:block;font-size:1.1rem;line-height:1.6;quotes:"“" "”";margin-bottom:16px}
-.rec cite{display:flex;align-items:center;gap:12px;font-style:normal;font-family:var(--ui);font-size:11.5px;font-weight:700;
+.rec cite{display:flex;align-items:center;gap:12px;font-style:normal;font-family:var(--ui);font-size:11.5px;font-weight:600;
   letter-spacing:.16em;text-transform:uppercase;color:var(--sub)}
 
 /* -------------------------------------------------------------- veronica - */
@@ -900,11 +896,7 @@ footer p{margin:0 0 .55em}
       <div class="mappa rv" id="mappa">
         <iframe title="Blue Rose, via Roma 242, Olbia" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          data-src="https://maps.google.com/maps?q=Via%20Roma%20242%2C%2007026%20Olbia%20SS%2C%20Italia&z=15&output=embed"></iframe>
-        <div class="mappa__velo">
-          <p>La mappa interattiva è fornita da Google Maps e viene caricata solo se la apri.</p>
-          <button class="btn btn--vuoto" type="button" id="mappaGo">Carica la mappa</button>
-        </div>
+          src="https://maps.google.com/maps?q=Via%20Roma%20242%2C%2007026%20Olbia%20SS%2C%20Italia&z=15&output=embed"></iframe>
       </div>
     </div>
   </section>
@@ -1072,14 +1064,6 @@ footer p{margin:0 0 .55em}
     barra.classList.toggle('su', mostra);
   }
   addEventListener('scroll',onScroll,{passive:true});
-
-  /* ---- map loads only on request (no Google cookies before that) --- */
-  var mgo=document.getElementById('mappaGo');
-  if(mgo){ mgo.addEventListener('click',function(){
-    var f=document.querySelector('.mappa iframe');
-    f.src=f.dataset.src;
-    mgo.closest('.mappa').classList.add('caricata');
-  }); }
 
   /* ---- mobile drawer -------------------------------------------------- */
   var ham=document.getElementById('ham'), menu=document.getElementById('menu');
