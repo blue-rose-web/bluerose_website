@@ -942,7 +942,7 @@ footer p{margin:0 0 .55em}
             <div class="campo"><label class="skip" for="tel">Telefono</label>
               <input id="tel" name="tel" type="tel" autocomplete="tel" placeholder="Telefono*" required></div>
             <div class="campo"><label class="skip" for="mail">Email</label>
-              <input id="mail" name="mail" type="email" autocomplete="email" placeholder="Email*" required></div>
+              <input id="mail" name="mail" type="email" autocomplete="email" placeholder="Email (facoltativa)"></div>
             <div class="campo"><label class="skip" for="note">Note</label>
               <textarea id="note" name="note" placeholder="Note (facoltative)"></textarea>
             <p class="obbl">* Campi obbligatori</p></div>
@@ -1269,7 +1269,8 @@ footer p{margin:0 0 .55em}
     /* a booking that arrives without a number cannot be confirmed */
     if(fTel.value.replace(/[^0-9+]/g,'').length < 8)
       return {msg:'Inserisci un numero di telefono valido.', focus:fTel, campo:fTel};
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(fMail.value.trim()))
+    /* email is optional — the reply happens on WhatsApp; validate only if given */
+    if(fMail.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(fMail.value.trim()))
       return {msg:'Inserisci un indirizzo email valido.', focus:fMail, campo:fMail};
     if(!privacy.checked) return {msg:'Per proseguire accetta l’informativa sulla privacy.', focus:privacy, ko:consensoWrap};
     return null;
