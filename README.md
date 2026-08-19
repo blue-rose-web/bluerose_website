@@ -1,6 +1,6 @@
-# Blue Rose Boutique — hero (work in progress)
+# Blue Rose Beauty Clinic — hero (work in progress)
 
-Client preview for **Blue Rose Boutique**, centro estetico, via Roma 242, Olbia (SS).
+Client preview for **Blue Rose Beauty Clinic**, centro estetico, via Roma 242, Olbia (SS).
 Owner-operator: Veronica Rosso.
 
 This is the **hero section only**. The rest of the page is intentionally not built
