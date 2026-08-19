@@ -1015,6 +1015,20 @@ footer p{margin:0 0 .55em}
 (function(){
   "use strict";
   var TEL='393282451396';
+  /* Desktop native-app handoff fails for WhatsApp Business accounts
+     ("usa WhatsApp Business"): route desktop to WhatsApp Web, which serves
+     both account types. Phones keep wa.me and open whichever app exists. */
+  var WA_DESKTOP = !/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+  function waHref(encodedText){
+    return WA_DESKTOP
+      ? 'https://web.whatsapp.com/send?phone='+TEL+(encodedText?'&text='+encodedText:'')
+      : 'https://wa.me/'+TEL+(encodedText?'?text='+encodedText:'');
+  }
+  if(WA_DESKTOP){
+    document.querySelectorAll('a[href^="https://wa.me/'+TEL+'"]').forEach(function(a){
+      a.href='https://web.whatsapp.com/send?phone='+TEL;
+    });
+  }
   var GG=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   var MM=['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto',
           'settembre','ottobre','novembre','dicembre'];
@@ -1317,7 +1331,7 @@ footer p{margin:0 0 .55em}
     if(!incompleto) pulisciErrore();
     if(!scelto || !ora){
       ricap.textContent='Choose a day and a time to continue.';
-      invia.href='https://wa.me/'+TEL;
+      invia.href=waHref('');
       return;
     }
     var testo = GG[scelto.getDay()]+' '+scelto.getDate()+' '+MM[scelto.getMonth()];
@@ -1331,7 +1345,7 @@ footer p{margin:0 0 .55em}
     if(tel)  m+=' Phone: '+tel+'.';
     if(mail) m+=' Email: '+mail+'.';
     if(note) m+=' '+note;
-    invia.href='https://wa.me/'+TEL+'?text='+encodeURIComponent(m);
+    invia.href=waHref(encodeURIComponent(m));
   }
   ['nome','tel','mail','note'].forEach(function(id){
     var el=document.getElementById(id);
