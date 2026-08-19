@@ -194,12 +194,13 @@ p{margin:0 0 1em;text-wrap:pretty}
 .ham[aria-expanded="true"] i:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
 @media(max-width:1080px){
   .destra{gap:14px}
-  .menu{position:fixed;inset:0 0 0 auto;width:min(330px,84vw);background:var(--crema);
+    .menu{position:fixed;top:0;right:0;bottom:0;left:auto;height:100vh;height:100dvh;
+    z-index:46;width:min(330px,84vw);background:var(--crema);
     flex-direction:column;justify-content:center;padding:40px;gap:26px;transform:translateX(101%);
     transition:transform .45s var(--e);box-shadow:-24px 0 60px -40px rgba(0,0,0,.4)}
   .menu.aperto{transform:none}
   .menu a{font-size:15px;letter-spacing:.08em}
-  .ham{display:block}
+  .ham{display:block;position:relative;z-index:47}
   .top .btn{display:none}
   .top .wrap,.top.giu .wrap{height:72px}
 }
@@ -555,6 +556,9 @@ footer p{margin:0 0 .55em}
 }
 @media (prefers-reduced-motion:reduce){ .hero__media video{display:none} }
 [id]{scroll-margin-top:96px}
+/* the drawer must never inherit entrance-animation transforms: a lingering
+   animation fill or a frozen transition leaves it half-painted on phones */
+@media(max-width:1080px){ .menu.nav-in{animation:none!important} }
 
 /* ======================================================= MOBILE ==========
    Most traffic is a phone, so this block is a correction pass driven by
